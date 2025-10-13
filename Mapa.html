@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isla de Ometepe - Maravilla de Nicaragua</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para el uso de la fuente Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fbee; /* Color de fondo muy suave, casi blanco verdoso */
+        }
+        .hero-bg {
+            /* Un degradado suave que evoca los colores de la naturaleza */
+            background: linear-gradient(135deg, #16a34a 0%, #34d399 100%);
+        }
+        /* Estilos para hacer el nav pegajoso */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor Principal Centrado -->
+    <div class="max-w-7xl mx-auto shadow-2xl bg-white">
+
+        <!-- Sección de Encabezado (Hero) -->
+        <header class="hero-bg text-white p-8 md:p-16 rounded-b-3xl shadow-xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+                Ometepe
+            </h1>
+            <p class="text-xl md:text-2xl font-light border-l-4 border-white pl-4 italic">
+                La Isla de los Dos Volcanes en el Corazón de América.
+            </p>
+        </header>
+
+        <!-- Barra de Navegación Sticky para fácil acceso -->
+        <nav class="sticky-nav bg-white shadow-xl p-3 rounded-b-xl border-b border-green-300">
+            <ul class="flex justify-around text-xs md:text-base font-semibold text-gray-700">
+                <li><a href="#descripcion" class="hover:text-green-600 transition duration-150 p-1 rounded-md">Descripción</a></li>
+                <li><a href="#volcanes" class="hover:text-green-600 transition duration-150 p-1 rounded-md">Volcanes</a></li>
+                <li><a href="#actividades" class="hover:text-green-600 transition duration-150 p-1 rounded-md">Actividades</a></li>
+                <li><a href="#cultura" class="hover:text-green-600 transition duration-150 p-1 rounded-md">Cultura</a></li>
+                <li><a href="#mapa" class="hover:text-green-600 transition duration-150 p-1 rounded-md">Mapa</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="p-6 md:p-12 space-y-16">
+
+            <!-- 1. Descripción General -->
+            <section id="descripcion" class="bg-gray-50 p-6 md:p-10 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-500 pb-2">
+                    Un Oasis en el Gran Lago
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Ometepe es la isla más grande del mundo situada en un lago de agua dulce. Ubicada en el Lago Cocibolca (también conocido como Gran Lago de Nicaragua), su nombre proviene del náhuatl y significa "dos montañas" (*ome* = dos, *tepetl* = montaña). La isla está formada por dos majestuosos volcanes unidos por un istmo de tierra: el Volcán Concepción y el Volcán Maderas. Es un destino de ecoturismo reconocido por su rica biodiversidad, su cultura prehispánica reflejada en petroglifos, y la calidez de su gente.
+                    </p>
+                    <div class="rounded-lg overflow-hidden shadow-xl transform hover:scale-[1.02] transition duration-300">
+                        <!-- Imagen de la vista general de la isla -->
+                        <img src="https://placehold.co/800x500/065f46/ffffff?text=Vista+Panorámica+Ometepe"
+                             alt="Vista panorámica de la Isla de Ometepe"
+                             class="w-full h-auto object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/065f46/ffffff?text=Vista+Panorámica+Ometepe+Cargando...'"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Los Volcanes: Concepcion y Maderas -->
+            <section id="volcanes">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    Los Dos Gigantes que la Moldean
+                </h2>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Volcán Concepción -->
+                    <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-red-500">
+                        <h3 class="text-2xl font-semibold text-red-600 mb-3">Volcán Concepción (Activo)</h3>
+                        <div class="mb-4 rounded-lg overflow-hidden">
+                            <!-- Imagen del Volcán Concepción -->
+                            <img src="https://placehold.co/700x450/dc2626/ffffff?text=Volcán+Concepción"
+                                 alt="Volcán Concepción"
+                                 class="w-full h-auto object-cover rounded"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/700x450/dc2626/ffffff?text=Concepción+Cargando...'"
+                            >
+                        </div>
+                        <p class="text-gray-600">
+                            El Concepción es un volcán cónico casi perfecto y uno de los más activos de Nicaragua. Alcanza los 1,610 metros de altura y domina el paisaje de la isla. Escalarlo es un desafío físico gratificante, ofreciendo vistas espectaculares del lago y la otra mitad de Ometepe.
+                        </p>
+                    </div>
+
+                    <!-- Volcán Maderas -->
+                    <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-blue-500">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-3">Volcán Maderas (Inactivo)</h3>
+                        <div class="mb-4 rounded-lg overflow-hidden">
+                            <!-- Imagen del Volcán Maderas / Cascada San Ramón -->
+                            <img src="https://placehold.co/700x450/2563eb/ffffff?text=Volcán+Maderas+%26+Cascada"
+                                 alt="Volcán Maderas y Cascada San Ramón"
+                                 class="w-full h-auto object-cover rounded"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/700x450/2563eb/ffffff?text=Maderas+Cargando...'"
+                            >
+                        </div>
+                        <p class="text-gray-600">
+                            Con 1,394 metros, el Maderas es la montaña inactiva y cubierta de nebliselva, un ecosistema totalmente diferente. En su cráter se ha formado una laguna, y en sus faldas se encuentra la hermosa Cascada de San Ramón, un lugar ideal para el senderismo y la observación de vida silvestre.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Actividades y Atractivos -->
+            <section id="actividades" class="bg-green-50 p-6 md:p-10 rounded-xl shadow-inner">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center border-b-2 border-green-600 pb-2">
+                    Lo que No Te Puedes Perder
+                </h2>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Ojo de Agua -->
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Ojo de Agua</h3>
+                        <div class="h-40 mb-3 rounded-lg overflow-hidden">
+                            <img src="https://placehold.co/400x300/10b981/ffffff?text=Ojo+de+Agua"
+                                 alt="Ojo de Agua"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x300/10b981/ffffff?text=Ojo+Cargando...'"
+                            >
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Una piscina natural alimentada por un manantial volcánico, perfecta para un refrescante baño. Se cree que sus aguas tienen propiedades curativas.
+                        </p>
+                    </div>
+
+                    <!-- Petroglifos -->
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Petroglifos Prehispánicos</h3>
+                        <div class="h-40 mb-3 rounded-lg overflow-hidden">
+                            <img src="https://placehold.co/400x300/4f46e5/ffffff?text=Petroglifos"
+                                 alt="Petroglifos"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x300/4f46e5/ffffff?text=Petroglifos+Cargando...'"
+                            >
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            La isla alberga una de las colecciones de petroglifos (arte rupestre) más grandes de América Central, testimonio de su pasado indígena.
+                        </p>
+                    </div>
+
+                    <!-- Punta Jesús María -->
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Punta Jesús María</h3>
+                        <div class="h-40 mb-3 rounded-lg overflow-hidden">
+                            <img src="https://placehold.co/400x300/fbbf24/000000?text=Punta+Jesús+María"
+                                 alt="Punta Jesús María"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x300/fbbf24/000000?text=Punta+Cargando...'"
+                            >
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Un estrecho istmo de arena que se adentra en el lago, ofreciendo vistas inigualables de los dos volcanes, especialmente al atardecer.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 4. Cultura y Fiestas -->
+            <section id="cultura" class="p-6 md:p-10 rounded-xl shadow-lg border-l-8 border-yellow-500">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-yellow-500 pb-2">
+                    Cultura, Historia y Fiestas Tradicionales
+                </h2>
+                <div class="space-y-6">
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        La cultura de Ometepe es un tesoro vivo, profundamente ligada a su geografía volcánica y a su **herencia ancestral indígena**. A diferencia de las grandes ciudades del Pacífico de Nicaragua, la vida en Ometepe mantiene un ritmo más pausado y sus costumbres están más preservadas, siendo el Lago Cocibolca su gran protector natural. Esta isla es un santuario arqueológico, con miles de petroglifos dispersos, que la diferencian radicalmente de otras regiones.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 items-start">
+                        <!-- Eventos -->
+                        <div class="bg-yellow-50 p-5 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">
+                                Fiestas y Eventos Anuales Importantes
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+                                <li>
+                                    <strong class="text-yellow-900">Fiestas Patronales de Moyogalpa (Santa Ana):</strong> Celebradas cada **26 de julio** con procesiones, música tradicional, ferias locales y el popular tope de toros.
+                                </li>
+                                <li>
+                                    <strong class="text-yellow-900">Fiestas de Altagracia (San Diego de Alcalá):</strong> El **13 de noviembre**, la celebración religiosa más grande y vistosa del municipio, con bailes folclóricos y mucha algarabía en honor a su patrono.
+                                </li>
+                                <li>
+                                    <strong class="text-yellow-900">Semana Santa:</strong> Las celebraciones religiosas son especialmente solemnes y coloridas, con procesiones únicas que recorren los caminos de tierra entre los poblados.
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Imagen Cultural -->
+                        <div class="rounded-lg overflow-hidden shadow-xl">
+                            <!-- Placeholder para imagen cultural/folclórica -->
+                            <img src="https://placehold.co/600x400/fcd34d/000000?text=Danza+Tradicional"
+                                alt="Danza folklórica de Nicaragua"
+                                class="w-full h-auto object-cover"
+                                onerror="this.onerror=null;this.src='https://placehold.co/600x400/fcd34d/000000?text=Cultura+Cargando...'"
+                            >
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 pt-4 border-t border-gray-200">
+                        Distinción y Comparación con el Resto del País
+                    </h3>
+                    <p class="text-gray-600">
+                        La principal diferencia cultural de Ometepe reside en su aislamiento y su fuerte conexión con lo prehispánico. Mientras que en las ciudades del Pacífico (como Granada o León) hay una marcada **arquitectura colonial** y una vida comercial intensa, en Ometepe perduran leyendas sobre gigantes, dioses y mitos volcánicos. La economía y el estilo de vida se centran en la **agricultura orgánica** y la pesca, fomentando una comunidad más ecológica y con un espíritu de autosuficiencia que no se encuentra fácilmente en las zonas más urbanizadas del país.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 5. Mapa de Google Maps (Iframe) -->
+            <section id="mapa" class="pt-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+                    Ubicación Geográfica de Ometepe
+                </h2>
+                <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
+                    <!-- Iframe de Google Maps proporcionado por el usuario, hecho responsivo -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
+                            width="100%"
+                            height="550"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-[550px] md:h-[650px] lg:h-[700px]"
+                    ></iframe>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="bg-gray-800 text-white p-6 md:p-8 mt-16 rounded-t-xl text-center">
+            <p class="text-sm md:text-base">
+                &copy; 2025 Explorando Ometepe. Todos los derechos reservados.
+            </p>
+            <div class="mt-2 text-xs text-gray-400">
+                Diseño con <a href="https://tailwindcss.com/" target="_blank" class="hover:text-green-400 underline">Tailwind CSS</a> y amor por la naturaleza.
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

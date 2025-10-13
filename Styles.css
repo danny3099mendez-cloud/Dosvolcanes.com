@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* -------- ESTILOS BASE -------- */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding-top: 80px;
+  background-color: #f7fbee;
+  color: #333;
+}
+
+/* -------- HEADER -------- */
+header {
+  background-color: #034b03;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* -------- NAVEGACIÓN -------- */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #059669;
+}
+
+/* -------- BOTÓN HAMBURGUESA -------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    background-color: #034b03;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+}
+
+/* -------- HERO / CARRUSEL PRINCIPAL -------- */
+.hero {
+  text-align: center;
+  padding: 40px 15px;
+  background-color: #e9f9ef;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  color: #034b03;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  aspect-ratio: 16/9; /* ✅ mantiene proporción sin cortes */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide-item {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: none;
+}
+
+.slide-item.active {
+  display: block;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  color: white;
+  font-size: 1.4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* -------- SECCIONES GENERALES -------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seccion {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 25px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.seccion h2 {
+  text-align: center;
+  color: #065f46;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #34d399;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* -------- TARJETAS -------- */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: #f0fff4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: left;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  color: #034b03;
+  margin-bottom: 10px;
+}
+
+.tarjeta p, .tarjeta li {
+  color: #555;
+  line-height: 1.6;
+}
+
+.tarjeta ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+/* -------- CARRUSEL DE ACTIVIDADES -------- */
+#actividades-carousel-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto; /* ✅ centrado en PC */
+  border-radius: 12px;
+  
+}
+
+.actividad-slide {
+  display: none;
+}
+
+.actividad-slide.active {
+  display: block;
+}
+
+.actividad-slide img {
+  width: 130%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  aspect-ratio: 16/9; /* ✅ mantiene proporción sin cortes */
+
+}
+
+/* -------- MAPA -------- */
+.mapa-container {
+  border: 3px solid #34d399;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* -------- CONTACTO -------- */
+.grid-contacto {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: flex-start;
+}
+
+.formulario {
+  background: #f0fff4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.formulario button {
+  background-color: #065f46;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #059669;
+}
+
+/* -------- FOOTER -------- */
+footer {
+  background-color: #034b03;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 2px solid #1e7a1e;
+}
+
+/* -------- WHATSAPP FLOAT -------- */
+.whatsapp-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .carousel-container {
+    aspect-ratio: 4/3;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .tarjeta {
+    padding: 15px;
+  }
+  .actividad-slide img {
+    height: 220px;
+  }
+  .grid-contacto {
+    grid-template-columns: 1fr;
+  }
+}

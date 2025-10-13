@@ -1,0 +1,197 @@
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descubre Ometepe - Guía de Turismo Local</title>
+  <link rel="stylesheet" href="Styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="IMG/LOGO.png" alt="Logo Dosvolcanes" class="logo-img" />
+      <span class="logo-text">Dosvolcanes.com</span>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav id="navbar">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#alojamiento">Alojamiento</a></li>
+        <li><a href="#transporte">Transporte</a></li>
+        <li><a href="#ferry">Ferrys</a></li>
+        <li><a href="#actividades_detalladas">Explora</a></li>
+        <li><a href="#mapa">Mapa</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <h1>Bienvenido a la Isla de Ometepe</h1>
+      <p>Dos volcanes, un paraíso. Explora sus maravillas naturales y culturales.</p>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="IMG/ferryometepe.jpg" alt="Ferry Ometepe" class="slide-item active">
+          <img src="IMG/ojodeagua.jpg" alt="Ojo de Agua" class="slide-item">
+          <img src="IMG/playalosmangos.jpg" alt="Playa Los Mangos" class="slide-item">
+          <img src="IMG/puntajesusmaria.jpg" alt="Punta Jesús María" class="slide-item">
+        </div>
+        <button class="prev" onclick="moveSlide(1, -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1, 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- ALOJAMIENTO -->
+    <section id="alojamiento" class="seccion">
+      <h2>Hoteles y Restaurantes</h2>
+      <div class="grid">
+        <div class="tarjeta">
+          <h3>Alojamiento</h3>
+          <p>Desde hostales económicos hasta lodges de lujo, encuentra tu lugar ideal para descansar después de la aventura.</p>
+          <ul>
+            <li><a href="#">Hostal El Viajero (Moyogalpa)</a></li>
+            <li><a href="#">Hotel Volcán (Altagracia)</a></li>
+            <li><a href="#">Eco-Lodge Paraíso</a></li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <h3>Gastronomía Local</h3>
+          <p>Prueba el pescado frito fresco, el vigorón y los deliciosos platos típicos nicaragüenses.</p>
+          <ul>
+            <li><a href="#">Restaurante La Casona</a></li>
+            <li><a href="#">Comedor Doña María</a></li>
+            <li><a href="#">Café El Mirador</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPORTE -->
+    <section id="transporte" class="seccion">
+      <h2>Renta de Vehículos y Motocicletas</h2>
+      <div class="grid">
+        <div class="tarjeta">
+          <h3>Motos (Recomendado)</h3>
+          <p>Perfectas para acceder a todos los rincones de Ometepe. Asegúrate de tener licencia.</p>
+          <p><strong>Contacto:</strong> Rentas "El Veloz" | Tel: 8888-XXXX</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Automóviles (4x4 Sugerido)</h3>
+          <p>Necesario para grupos grandes o mayor comodidad, especialmente en la temporada de lluvia.</p>
+          <p><strong>Contacto:</strong> Ometepe Car Rental | info@rentaometepe.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FERRYS -->
+    <section id="ferry" class="seccion">
+      <h2>Ferrys: Moyogalpa - San Jorge</h2>
+      <div class="tarjeta">
+        <h3>Proceso de Reservación y Compra</h3>
+        <ol>
+          <li>Llega al puerto de San Jorge o Moyogalpa una hora antes.</li>
+          <li>Compra boletos en taquilla (pasajeros o vehículos).</li>
+          <li>Presenta matrícula y licencia si llevas vehículo.</li>
+          <li>Embarque: primero vehículos, luego pasajeros.</li>
+          <li>Duración: entre 1h y 1h 30m.</li>
+        </ol>
+        <p class="aviso">**TIP:** Los horarios varían. Consulta cartelera al llegar al puerto.</p>
+      </div>
+    </section>
+
+    <!-- ACTIVIDADES -->
+    <section id="actividades_detalladas" class="seccion">
+      <h2>Lo que No Te Puedes Perder</h2>
+      <div id="actividades-carousel-container">
+        <div class="carousel-track" id="carouselActividadesTrack">
+          <div class="actividad-slide active">
+            <img src="IMG/ojodeagua.jpg" alt="Ojo de Agua">
+            <h3>Ojo de Agua</h3>
+            <p>Una piscina natural alimentada por un manantial volcánico, perfecta para un refrescante baño.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/cascada.jpg" alt="Cascada San Ramón">
+            <h3>Cascada San Ramón</h3>
+            <p>Un sendero de 3 km lleva a esta impresionante caída de agua de 50 metros.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/puntajesusmaria.jpg" alt="Punta Jesús María">
+            <h3>Punta Jesús María</h3>
+            <p>Un estrecho istmo de arena con vistas inigualables de los volcanes.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/charco verde.jpg" alt="Charco Verde">
+            <h3>Reserva Charco Verde</h3>
+            <p>Laguna esmeralda ideal para observar monos, aves y disfrutar la naturaleza.</p>
+          </div>
+        </div>
+        <button class="prev" onclick="moveSlide(2, -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(2, 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section id="mapa_ubicacion" class="seccion pt-8 mt-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+                <i class="fas fa-map-marked-alt"></i> Ubicación Geográfica de Ometepe
+            </h2>
+            <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
+                <!-- Iframe es intrínsecamente responsivo usando w-full -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-[400px] md:h-[550px] lg:h-[650px]"
+                ></iframe>
+            </div>
+        </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion contacto">
+      <h2>Contáctanos</h2>
+      <div class="grid-contacto">
+        <div class="tarjeta">
+          <h3>Información de Contacto</h3>
+          <p><strong>Teléfono:</strong> +505 5821-5395</p>
+          <p><strong>Email:</strong> info@dosvolcanes.com</p>
+          <p><strong>Dirección:</strong> Moyogalpa, Isla de Ometepe</p>
+        </div>
+
+        <form class="formulario">
+          <input type="text" placeholder="Tu Nombre" required>
+          <input type="email" placeholder="Tu Correo Electrónico" required>
+          <textarea placeholder="Tu Mensaje" rows="4" required></textarea>
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dosvolcanes. Todos los derechos reservados.</p>
+  </footer>
+
+ <a href="https://wa.me/50558016497?text=Hola%2C%20estoy%20interesado%2Fda%20en%20mas%20informacion,%20Gracias." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+     
+    <img src="IMG/WH.png" alt="WhatsApp">
+  </a>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+
+  <script src="carousel.js"></script>
+</body>
+</html>
