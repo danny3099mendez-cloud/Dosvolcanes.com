@@ -140,7 +140,6 @@ nav a:hover {
   width: 130%;
   object-fit: cover;
   border-radius: 10px;
-  border-radius: 10px;
   margin-bottom: 10px;
   aspect-ratio: 16/9; /* ✅ mantiene proporción sin cortes */
 }
