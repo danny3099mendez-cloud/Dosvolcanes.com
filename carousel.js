@@ -37,10 +37,10 @@ function moveSlide(carouselId, step) {
 
   if (carouselId === 1) {
     showSlide(1, slideIndex1 + step);
-    timer1 = setTimeout(() => autoSlide(1), 3000);
+    timer1 = setTimeout(() => autoSlide(1), 3500);
   } else {
     showSlide(2, slideIndex2 + step);
-    timer2 = setTimeout(() => autoSlide(2), 3000);
+    timer2 = setTimeout(() => autoSlide(2), 3500);
   }
 }
 
@@ -48,10 +48,10 @@ function moveSlide(carouselId, step) {
 function autoSlide(carouselId) {
   if (carouselId === 1) {
     showSlide(1, slideIndex1 + 1);
-    timer1 = setTimeout(() => autoSlide(1), 3000);
+    timer1 = setTimeout(() => autoSlide(1), 3500);
   } else {
     showSlide(2, slideIndex2 + 1);
-    timer2 = setTimeout(() => autoSlide(2), 3000);
+    timer2 = setTimeout(() => autoSlide(2), 3500);
   }
 }
 
@@ -61,13 +61,13 @@ window.addEventListener("DOMContentLoaded", () => {
   const slides1 = getSlides(1);
   if (slides1.length) {
     slides1[0].classList.add("active");
-    timer1 = setTimeout(() => autoSlide(1), 3000);
+    timer1 = setTimeout(() => autoSlide(1), 3500);
   }
 
   // Carrusel de actividades
   const slides2 = getSlides(2);
   if (slides2.length) {
     slides2[0].classList.add("active");
-    timer2 = setTimeout(() => autoSlide(2), 3000);
+    timer2 = setTimeout(() => autoSlide(2), 3500);
   }
 });
