@@ -216,72 +216,75 @@
 
 
 
-
-  <!-- SIMPLE CHATBOT -->
-  <div id="chatbot-container" class="chatbot-container">
-    <div id="chatbot-header">💬 Chat - DosVolcanes</div>
-    <div id="chatbot-messages" class="chatbot-messages"></div>
-    <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="Type your question..." />
-      <button id="send-btn">Send</button>
-    </div>
+<!-- CHATBOT SENCILLO -->
+<div id="chatbot-container" class="chatbot-container">
+  <div id="chatbot-header">💬 Chat - DosVolcanes</div>
+  <div id="chatbot-messages" class="chatbot-messages"></div>
+  <div class="chatbot-input">
+    <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
+    <button id="send-btn">Enviar</button>
   </div>
+</div>
 
-  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+<button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
 
-  <script>
-    const responses = [
-      { keywords: ["hello", "hi"], answer: "Hi there! 😊 Welcome to DosVolcanes.com. How can I help you with Ometepe?" },
-      { keywords: ["lodging", "hotel", "stay"], answer: "There are several places: El Viajero Hostel, Volcán Hotel, and Eco-Lodge Paraíso. 🌴" },
-      { keywords: ["food", "restaurant"], answer: "Try fresh fried fish, vigorón, or visit La Casona, Doña María’s, or Café El Mirador. 🍽️" },
-      { keywords: ["transport", "motorbike", "car"], answer: "You can rent motorbikes with Rentas 'El Veloz' or 4x4 vehicles with Ometepe Car Rental. 🛵🚙" },
-      { keywords: ["ferry", "boat", "port"], answer: "Ferries operate between Moyogalpa and San Jorge. Arrive an hour early and buy your ticket at the counter. ⛴️" },
-      { keywords: ["activities", "explore", "places"], answer: "You can visit Ojo de Agua, San Ramón Waterfall, Punta Jesús María, and Charco Verde. 🌋" },
-      { keywords: ["map", "location"], answer: "You can view the location on the map section called 'Geographic Location of Ometepe'. 🗺️" },
-      { keywords: ["contact", "phone", "email"], answer: "You can reach us at +505 5821-5395 or info@dosvolcanes.com 📞📧" },
-      { keywords: ["thanks", "bye"], answer: "You’re welcome! 😊 Have a wonderful trip to Ometepe." }
-    ];
+<script>
+  const responses = [
+    { keywords: ["hola", "buenas"], answer: "¡Hola! 😊 Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?" },
+    { keywords: ["alojamiento", "hotel", "hospedaje", "isla"], answer: "En Ometepe hay varios lugares: Hostal El Viajero, Hotel Volcán y Eco-Lodge Paraíso. 🌴" },
+    { keywords: ["comida", "restaurante", "gastronomía"], answer: "Puedes probar el pescado frito, el vigorón o visitar La Casona, Doña María y Café El Mirador. 🍽️" },
+    { keywords: ["transporte", "moto", "carro", "vehículo"], answer: "Puedes rentar motos con Rentas 'El Veloz' o vehículos 4x4 con Ometepe Car Rental. 🛵🚙" },
+    { keywords: ["ferry", "barco", "puerto"], answer: "Los ferrys salen entre Moyogalpa y San Jorge. Llega una hora antes y compra tu boleto en taquilla. ⛴️" },
+    { keywords: ["actividades", "explora", "lugares", "qué hacer"], answer: "Puedes visitar el Ojo de Agua, Cascada San Ramón, Punta Jesús María y Charco Verde. 🌋" },
+    { keywords: ["mapa", "ubicacion"], answer: "Puedes ver la ubicación en el mapa dentro de la página, justo en la sección 'Ubicación Geográfica de Ometepe'. 🗺️" },
+    { keywords: ["contacto", "telefono", "correo", "email"], answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com 📞📧" },
+    { keywords: ["gracias", "adios"], answer: "¡Con gusto! 😊 Que tengas un excelente viaje por Ometepe." },
+    { keywords: ["donde queda", "donde es", "que pais", "queda"], answer: "Ometepe queda en nicaragua mi shakk ponete vivo" },
+    { keywords: ["Como estas", "estas", "como vas", "que onda"], answer: "Todo bien gracias a Dios, en que te puedo ayudar hoy prix?" },
+  ];
 
-    const messagesDiv = document.getElementById("chatbot-messages");
-    const input = document.getElementById("user-input");
-    const sendBtn = document.getElementById("send-btn");
-    const toggleBtn = document.getElementById("chatbot-toggle");
-    const chatbot = document.getElementById("chatbot-container");
+  const messagesDiv = document.getElementById("chatbot-messages");
+  const input = document.getElementById("user-input");
+  const sendBtn = document.getElementById("send-btn");
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatbot = document.getElementById("chatbot-container");
 
-    function addMessage(text, sender) {
-      const msg = document.createElement("div");
-      msg.className = sender;
-      msg.innerText = text;
-      messagesDiv.appendChild(msg);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  function addMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.className = sender;
+    msg.innerText = text;
+    messagesDiv.appendChild(msg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function getResponse(userText) {
+    userText = userText.toLowerCase();
+    for (const r of responses) {
+      if (r.keywords.some(k => userText.includes(k))) return r.answer;
     }
+    return "No estoy seguro de eso 🤔, pero puedo ayudarte con alojamiento, transporte, ferrys o actividades en Ometepe.";
+  }
 
-    function getResponse(userText) {
-      userText = userText.toLowerCase();
-      for (const r of responses) {
-        if (r.keywords.some(k => userText.includes(k))) return r.answer;
-      }
-      return "I'm not sure about that 🤔, but I can help you with lodging, transportation, ferries, or activities in Ometepe.";
-    }
+  sendBtn.addEventListener("click", () => {
+    const text = input.value.trim();
+    if (!text) return;
+    addMessage("Tú: " + text, "user");
+    input.value = "";
+    setTimeout(() => {
+      addMessage("Bot: " + getResponse(text), "bot");
+    }, 500);
+  });
 
-    sendBtn.addEventListener("click", () => {
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage("You: " + text, "user");
-      input.value = "";
-      setTimeout(() => {
-        addMessage("Bot: " + getResponse(text), "bot");
-      }, 500);
-    });
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendBtn.click();
+  });
 
-    input.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendBtn.click();
-    });
+  toggleBtn.addEventListener("click", () => {
+    chatbot.classList.toggle("open");
+  });
+</script>
 
-    toggleBtn.addEventListener("click", () => {
-      chatbot.classList.toggle("open");
-    });
-  </script>
+
 
 
 
@@ -315,6 +318,21 @@
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
