@@ -204,13 +204,6 @@
     <img src="IMG/WH.png" alt="WhatsApp">
   </a>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navbar = document.getElementById('navbar');
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-    });
-  </script>
 
   <script src="carousel.js"></script>
 
@@ -324,6 +317,21 @@
 
 
 
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('#navbar a');
+
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+    });
+  });
+</script>
 
 
 
