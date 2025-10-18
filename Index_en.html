@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Ometepe - Local Tourism Guide</title>
+  <link rel="stylesheet" href="Styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="IMG/LOGO.png" alt="Dosvolcanes Logo" class="logo-img" />
+      <span class="logo-text">Dosvolcanes.com</span>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav id="navbar">
+      <ul>
+        <li><a href="#inicio">Home</a></li>
+        <li><a href="#alojamiento">Lodging</a></li>
+        <li><a href="#transporte">Transportation</a></li>
+        <li><a href="#ferry">Ferries</a></li>
+        <li><a href="#actividades_detalladas">Explore</a></li>
+        <li><a href="#mapa">Map</a></li>
+        <li><a href="#contacto">Contact</a></li>
+        <a href="index.html" class="idioma">Español</a>
+        <button id="darkModeToggle" class="modo-toggle">🌙</button>
+          
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <h1>Welcome to Ometepe Island</h1>
+      <p>Two volcanoes, one paradise. Discover its natural and cultural wonders.</p>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="IMG/ferryometepe.jpg" alt="Ometepe Ferry" class="slide-item active">
+          <img src="IMG/ojodeagua.jpg" alt="Ojo de Agua" class="slide-item">
+          <img src="IMG/playalosmangos.jpg" alt="Los Mangos Beach" class="slide-item">
+          <img src="IMG/puntajesusmaria.jpg" alt="Punta Jesús María" class="slide-item">
+        </div>
+        <button class="prev" onclick="moveSlide(1, -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1, 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- FERRY -->
+    <section id="ferry" class="seccion">
+      <h2>Ferries: Moyogalpa - San Jorge</h2>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+        <iframe 
+          src="https://www.youtube.com/embed/E9cju2NASi4"
+          frameborder="0"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;">
+        </iframe>
+      </div>
+      <p class="aviso"><strong>TIP:</strong> Schedules may vary. Check the board when you arrive at the port.</p>
+    </section>
+
+    <!-- LODGING -->
+    <section id="alojamiento" class="seccion">
+      <h2>Hotels and Restaurants</h2>
+      <div class="grid">
+        <div class="tarjeta">
+          <h3>Accommodation</h3>
+          <p>From budget hostels to luxury eco-lodges, find the perfect place to relax after your adventure.</p>
+          <ul>
+            <li><a href="#">Hostal El Viajero (Moyogalpa)</a></li>
+            <li><a href="#">Hotel Volcán (Altagracia)</a></li>
+            <li><a href="#">Eco-Lodge Paraíso</a></li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <h3>Local Cuisine</h3>
+          <p>Try the fresh fried fish, "vigorón," and other delicious traditional Nicaraguan dishes.</p>
+          <ul>
+            <li><a href="#">La Casona Restaurant</a></li>
+            <li><a href="#">Doña María’s Diner</a></li>
+            <li><a href="#">El Mirador Café</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPORTATION -->
+    <section id="transporte" class="seccion">
+      <h2>Vehicle and Motorcycle Rentals</h2>
+      <div class="grid">
+        <div class="tarjeta">
+          <h3>Motorbikes (Recommended)</h3>
+          <p>Perfect to explore every corner of Ometepe. Make sure to have a valid license.</p>
+          <p><strong>Contact:</strong> Rentas "El Veloz" | Tel: 8888-XXXX</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Cars (4x4 Suggested)</h3>
+          <p>Ideal for large groups or extra comfort, especially during the rainy season.</p>
+          <p><strong>Contact:</strong> Ometepe Car Rental | info@rentaometepe.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FERRY INFO -->
+    <section id="ferry" class="seccion">
+      <h2>Ferries: Moyogalpa - San Jorge</h2>
+      <div class="tarjeta">
+        <h3>Booking and Boarding Process</h3>
+        <ol>
+          <li>Arrive at the San Jorge or Moyogalpa port one hour before departure.</li>
+          <li>Buy tickets at the counter (passengers or vehicles).</li>
+          <li>Present your registration and license if traveling with a vehicle.</li>
+          <li>Boarding: vehicles first, then passengers.</li>
+          <li>Duration: between 1h and 1h 30m.</li>
+        </ol>
+        <p class="aviso"><strong>TIP:</strong> Schedules may change. Check the information board at the port.</p>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="actividades_detalladas" class="seccion">
+      <h2>Must-See Attractions</h2>
+      <div id="actividades-carousel-container">
+        <div class="carousel-track" id="carouselActividadesTrack">
+          <div class="actividad-slide active">
+            <img src="IMG/ojodeagua.jpg" alt="Ojo de Agua">
+            <h3>Ojo de Agua</h3>
+            <p>A natural pool fed by volcanic springs, perfect for a refreshing swim.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/cascada.jpg" alt="San Ramón Waterfall">
+            <h3>San Ramón Waterfall</h3>
+            <p>A 3 km trail leads to this impressive 50-meter waterfall.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/puntajesusmaria.jpg" alt="Punta Jesús María">
+            <h3>Punta Jesús María</h3>
+            <p>A narrow sand isthmus offering breathtaking views of the volcanoes.</p>
+          </div>
+          <div class="actividad-slide">
+            <img src="IMG/charco verde.jpg" alt="Charco Verde">
+            <h3>Charco Verde Reserve</h3>
+            <p>An emerald lagoon ideal for spotting monkeys, birds, and enjoying nature.</p>
+          </div>
+        </div>
+        <button class="prev" onclick="moveSlide(2, -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(2, 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="mapa_ubicacion" class="seccion pt-8 mt-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+        <i class="fas fa-map-marked-alt"></i> Geographic Location of Ometepe
+      </h2>
+      <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1sen!2sni!4v1759848215795!5m2!1sen!2sni"
+          width="100%" height="400" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-[400px] md:h-[550px] lg:h-[650px]">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" class="seccion contacto">
+      <h2>Contact Us</h2>
+      <div class="grid-contacto">
+        <div class="tarjeta">
+          <h3>Contact Information</h3>
+          <p><strong>Phone:</strong> +505 5821-5395</p>
+          <p><strong>Email:</strong> info@dosvolcanes.com</p>
+          <p><strong>Address:</strong> Moyogalpa, Ometepe Island</p>
+        </div>
+
+        <form class="formulario">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dosvolcanes. All rights reserved.</p>
+  </footer>
+
+  <a href="https://wa.me/50558016497?text=Hello%2C%20I%27m%20interested%20in%20more%20information.%20Thank%20you." 
+     class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp">
+    <img src="IMG/WH.png" alt="WhatsApp">
+  </a>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+
+  <script src="carousel.js"></script>
+
+
+
+
+  
+
+  <!-- SIMPLE CHATBOT -->
+  <div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-header">💬 Chat - DosVolcanes</div>
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type your question..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+
+  <script>
+    const responses = [
+      { keywords: ["hello", "hi"], answer: "Hi there! 😊 Welcome to DosVolcanes.com. How can I help you with Ometepe?" },
+      { keywords: ["lodging", "hotel", "stay"], answer: "There are several places: El Viajero Hostel, Volcán Hotel, and Eco-Lodge Paraíso. 🌴" },
+      { keywords: ["food", "restaurant"], answer: "Try fresh fried fish, vigorón, or visit La Casona, Doña María’s, or Café El Mirador. 🍽️" },
+      { keywords: ["transport", "motorbike", "car"], answer: "You can rent motorbikes with Rentas 'El Veloz' or 4x4 vehicles with Ometepe Car Rental. 🛵🚙" },
+      { keywords: ["ferry", "boat", "port"], answer: "Ferries operate between Moyogalpa and San Jorge. Arrive an hour early and buy your ticket at the counter. ⛴️" },
+      { keywords: ["activities", "explore", "places"], answer: "You can visit Ojo de Agua, San Ramón Waterfall, Punta Jesús María, and Charco Verde. 🌋" },
+      { keywords: ["map", "location"], answer: "You can view the location on the map section called 'Geographic Location of Ometepe'. 🗺️" },
+      { keywords: ["contact", "phone", "email"], answer: "You can reach us at +505 5821-5395 or info@dosvolcanes.com 📞📧" },
+      { keywords: ["thanks", "bye"], answer: "You’re welcome! 😊 Have a wonderful trip to Ometepe." }
+    ];
+
+    const messagesDiv = document.getElementById("chatbot-messages");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const toggleBtn = document.getElementById("chatbot-toggle");
+    const chatbot = document.getElementById("chatbot-container");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = sender;
+      msg.innerText = text;
+      messagesDiv.appendChild(msg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function getResponse(userText) {
+      userText = userText.toLowerCase();
+      for (const r of responses) {
+        if (r.keywords.some(k => userText.includes(k))) return r.answer;
+      }
+      return "I'm not sure about that 🤔, but I can help you with lodging, transportation, ferries, or activities in Ometepe.";
+    }
+
+    sendBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage("You: " + text, "user");
+      input.value = "";
+      setTimeout(() => {
+        addMessage("Bot: " + getResponse(text), "bot");
+      }, 500);
+    });
+
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendBtn.click();
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      chatbot.classList.toggle("open");
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+<script>
+  const toggleDarkMode = document.getElementById("darkModeToggle");
+
+  // Al hacer clic en el botón, activa o desactiva la clase "dark-mode"
+  toggleDarkMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Guarda la preferencia en el navegador
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("modoOscuro", isDark);
+    
+    // Cambia el icono
+    toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
+  });
+
+  // Si el usuario ya tenía modo oscuro, recuérdalo
+  if (localStorage.getItem("modoOscuro") === "true") {
+    document.body.classList.add("dark-mode");
+    toggleDarkMode.textContent = "☀️";
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
