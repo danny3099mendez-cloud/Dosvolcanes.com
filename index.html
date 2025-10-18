@@ -211,5 +211,108 @@
   </script>
 
   <script src="carousel.js"></script>
+
+
+
+
+  <!-- SIMPLE CHATBOT -->
+  <div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-header">💬 Chat - DosVolcanes</div>
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type your question..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+
+  <script>
+    const responses = [
+      { keywords: ["hello", "hi"], answer: "Hi there! 😊 Welcome to DosVolcanes.com. How can I help you with Ometepe?" },
+      { keywords: ["lodging", "hotel", "stay"], answer: "There are several places: El Viajero Hostel, Volcán Hotel, and Eco-Lodge Paraíso. 🌴" },
+      { keywords: ["food", "restaurant"], answer: "Try fresh fried fish, vigorón, or visit La Casona, Doña María’s, or Café El Mirador. 🍽️" },
+      { keywords: ["transport", "motorbike", "car"], answer: "You can rent motorbikes with Rentas 'El Veloz' or 4x4 vehicles with Ometepe Car Rental. 🛵🚙" },
+      { keywords: ["ferry", "boat", "port"], answer: "Ferries operate between Moyogalpa and San Jorge. Arrive an hour early and buy your ticket at the counter. ⛴️" },
+      { keywords: ["activities", "explore", "places"], answer: "You can visit Ojo de Agua, San Ramón Waterfall, Punta Jesús María, and Charco Verde. 🌋" },
+      { keywords: ["map", "location"], answer: "You can view the location on the map section called 'Geographic Location of Ometepe'. 🗺️" },
+      { keywords: ["contact", "phone", "email"], answer: "You can reach us at +505 5821-5395 or info@dosvolcanes.com 📞📧" },
+      { keywords: ["thanks", "bye"], answer: "You’re welcome! 😊 Have a wonderful trip to Ometepe." }
+    ];
+
+    const messagesDiv = document.getElementById("chatbot-messages");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const toggleBtn = document.getElementById("chatbot-toggle");
+    const chatbot = document.getElementById("chatbot-container");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = sender;
+      msg.innerText = text;
+      messagesDiv.appendChild(msg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function getResponse(userText) {
+      userText = userText.toLowerCase();
+      for (const r of responses) {
+        if (r.keywords.some(k => userText.includes(k))) return r.answer;
+      }
+      return "I'm not sure about that 🤔, but I can help you with lodging, transportation, ferries, or activities in Ometepe.";
+    }
+
+    sendBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage("You: " + text, "user");
+      input.value = "";
+      setTimeout(() => {
+        addMessage("Bot: " + getResponse(text), "bot");
+      }, 500);
+    });
+
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendBtn.click();
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      chatbot.classList.toggle("open");
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+<script>
+  const toggleDarkMode = document.getElementById("darkModeToggle");
+
+  // Al hacer clic en el botón, activa o desactiva la clase "dark-mode"
+  toggleDarkMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Guarda la preferencia en el navegador
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("modoOscuro", isDark);
+    
+    // Cambia el icono
+    toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
+  });
+
+  // Si el usuario ya tenía modo oscuro, recuérdalo
+  if (localStorage.getItem("modoOscuro") === "true") {
+    document.body.classList.add("dark-mode");
+    toggleDarkMode.textContent = "☀️";
+  }
+</script>
+
+
+
+  
 </body>
 </html>
