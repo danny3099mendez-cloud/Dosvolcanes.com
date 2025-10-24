@@ -640,3 +640,147 @@ a.idioma:hover {
   color: white;
 }
 
+
+
+/* === MODO OSCURO MEJORADO === */
+.modo-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+  color: #333;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.modo-toggle:hover {
+  transform: scale(1.2);
+  color: #34d399;
+}
+
+/* ---------- ACTIVACIÓN DEL MODO OSCURO ---------- */
+body.dark-mode {
+  background-color: #0f0f0f;
+  color: #e6e6e6;
+}
+
+/* Header y Footer */
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #111;
+  color: #e6e6e6;
+  border-color: #2e2e2e;
+}
+
+/* Texto general */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode li {
+  color: #f0f0f0;
+}
+
+/* Enlaces */
+body.dark-mode a {
+  color: #4ade80;
+}
+
+body.dark-mode a:hover {
+  color: #86efac;
+}
+
+/* Tarjetas y secciones */
+body.dark-mode .tarjeta,
+body.dark-mode .seccion {
+  background-color: #1b1b1b;
+  color: #e6e6e6;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .tarjeta h3 {
+  color: #34d399;
+}
+
+body.dark-mode .hero {
+  background-color: #1a1a1a;
+  color: #e6e6e6;
+}
+
+/* Formularios */
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaa;
+}
+
+/* Botones */
+body.dark-mode button,
+body.dark-mode .formulario button {
+  background-color: #34d399;
+  color: #111;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .formulario button:hover {
+  background-color: #22c55e;
+}
+
+/* Chatbot */
+body.dark-mode .chatbot-container {
+  background-color: #1a1a1a;
+  border-color: #34d399;
+  color: #e6e6e6;
+}
+
+body.dark-mode #chatbot-header {
+  background: #34d399;
+  color: #111;
+}
+
+body.dark-mode .chatbot-messages .user {
+  background: #263f2f;
+  color: #c7f9cc;
+}
+
+body.dark-mode .chatbot-messages .bot {
+  background: #2a2a2a;
+  color: #e6e6e6;
+}
+
+body.dark-mode .chatbot-input input {
+  background: #1f1f1f;
+  color: #e6e6e6;
+  border-color: #333;
+}
+
+body.dark-mode .chatbot-input button {
+  background: #34d399;
+  color: #111;
+}
+
+body.dark-mode .chatbot-input button:hover {
+  background: #22c55e;
+}
+
+/* Botón flotante del chatbot */
+body.dark-mode .chatbot-toggle {
+  background: #34d399;
+  color: #111;
+}
+
+/* Modo toggle visible claro */
+body.dark-mode .modo-toggle {
+  color: #f1f1f1;
+}
+
