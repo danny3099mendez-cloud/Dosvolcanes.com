@@ -203,39 +203,96 @@
 
 
 
-  
-
-  <!-- SIMPLE CHATBOT -->
-  <div id="chatbot-container" class="chatbot-container">
-    <div id="chatbot-header">💬 Chat - DosVolcanes</div>
-    <div id="chatbot-messages" class="chatbot-messages"></div>
-    <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="Type your question..." />
-      <button id="send-btn">Send</button>
-    </div>
+  <!-- SIMPLE CHATBOT (ENGLISH VERSION) -->
+<div id="chatbot-container" class="chatbot-container">
+  <div id="chatbot-header">💬 Chat - DosVolcanes</div>
+  <div id="chatbot-messages" class="chatbot-messages"></div>
+  <div class="chatbot-input">
+    <input type="text" id="user-input" placeholder="Type your question..." />
+    <button id="send-btn">Send</button>
   </div>
+</div>
 
-  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+<button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
 
-  <script>
-    const responses = [
-      { keywords: ["hello", "hi"], answer: "Hi there! 😊 Welcome to DosVolcanes.com. How can I help you with Ometepe?" },
-      { keywords: ["lodging", "hotel", "stay"], answer: "There are several places: El Viajero Hostel, Volcán Hotel, and Eco-Lodge Paraíso. 🌴" },
-      { keywords: ["food", "restaurant"], answer: "Try fresh fried fish, vigorón, or visit La Casona, Doña María’s, or Café El Mirador. 🍽️" },
-      { keywords: ["transport", "motorbike", "car"], answer: "You can rent motorbikes with Rentas 'El Veloz' or 4x4 vehicles with Ometepe Car Rental. 🛵🚙" },
-      { keywords: ["ferry", "boat", "port"], answer: "Ferries operate between Moyogalpa and San Jorge. Arrive an hour early and buy your ticket at the counter. ⛴️" },
-      { keywords: ["activities", "explore", "places"], answer: "You can visit Ojo de Agua, San Ramón Waterfall, Punta Jesús María, and Charco Verde. 🌋" },
-      { keywords: ["map", "location"], answer: "You can view the location on the map section called 'Geographic Location of Ometepe'. 🗺️" },
-      { keywords: ["contact", "phone", "email"], answer: "You can reach us at +505 5821-5395 or info@dosvolcanes.com 📞📧" },
-      { keywords: ["thanks", "bye"], answer: "You’re welcome! 😊 Have a wonderful trip to Ometepe." }
-    ];
+<script>
+  // 🔤 Normalize text (remove accents, punctuation, and lowercase everything)
+  function normalizeText(text) {
+    return text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "") // remove accents
+      .replace(/[^\w\s]/gi, ""); // remove punctuation
+  }
 
-    const messagesDiv = document.getElementById("chatbot-messages");
+  // 💬 Responses with many related keywords
+  const responses = [
+    {
+      keywords: ["hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening", "sup", "whats up", "howdy"],
+      answer: "Hi there! 😊 Welcome to DosVolcanes.com. How can I help you with your trip to Ometepe?"
+    },
+    {
+      keywords: ["hotel", "lodging", "stay", "hostel", "accommodation", "room", "booking", "reserve", "cabin"],
+      answer: "In Ometepe, you can stay at Hostal El Viajero, Hotel Volcán, or Eco-Lodge Paraíso. 🌴"
+    },
+    {
+      keywords: ["food", "restaurant", "meal", "eat", "lunch", "dinner", "breakfast", "drink", "menu"],
+      answer: "You can try fried fish, vigorón, or visit La Casona, Doña María, or Café El Mirador. 🍽️"
+    },
+    {
+      keywords: ["transport", "motorbike", "car", "vehicle", "bike", "taxi", "rental", "bus", "transportation"],
+      answer: "You can rent motorbikes at 'El Veloz Rentals' or 4x4 vehicles at Ometepe Car Rental. 🛵🚙"
+    },
+    {
+      keywords: ["ferry", "boat", "port", "harbor", "ship", "crossing", "dock", "ticket"],
+      answer: "Ferries run between Moyogalpa and San Jorge. Arrive an hour early and buy your ticket at the terminal. ⛴️"
+    },
+    {
+      keywords: ["activity", "explore", "places", "what to do", "tourism", "visit", "adventure", "hiking", "volcano", "attraction"],
+      answer: "You can visit Ojo de Agua, San Ramón Waterfall, Punta Jesús María, and Charco Verde. 🌋"
+    },
+    {
+      keywords: ["map", "location", "address", "directions", "how to get there", "where is", "see map", "exact place"],
+      answer: "You can find the map in the 'Geographical Location of Ometepe' section on this website. 🗺️"
+    },
+    {
+      keywords: ["contact", "phone", "email", "mail", "whatsapp", "message", "number", "talk", "call"],
+      answer: "You can contact us at +505 5821-5395 or email info@dosvolcanes.com 📞📧"
+    },
+    {
+      keywords: ["thanks", "thank you", "bye", "goodbye", "see you", "ok", "cool"],
+      answer: "You're welcome! 😊 Have an amazing trip to Ometepe."
+    },
+    {
+      keywords: ["where is", "which country", "where located", "country", "location", "place", "where is ometepe"],
+      answer: "Ometepe is in Nicaragua 🇳🇮, located inside Lake Cocibolca and formed by the Concepción and Maderas volcanoes. 🌋"
+    },
+    {
+      keywords: ["how are you", "you good", "you ok", "how you doing", "whats up", "how are things"],
+      answer: "I'm doing great, thank you! 🙌 How about you? How can I help today?"
+    },
+    {
+      keywords: ["price", "how much", "cost", "rate", "payment", "money", "ferry price", "hotel cost"],
+      answer: "Prices vary depending on the season 🌞. The ferry costs around $2–4 USD and accommodations start at $10 USD per night."
+    },
+    {
+      keywords: ["weather", "temperature", "rain", "hot", "cold", "sun", "season", "best time"],
+      answer: "Ometepe has a tropical climate ☀️. The best time to visit is between December and April (dry season)."
+    },
+    {
+      keywords: ["animals", "nature", "flora", "fauna", "monkeys", "birds", "forest", "jungle"],
+      answer: "In Ometepe, you can see howler monkeys, exotic birds, and lush vegetation 🌳🦜"
+    }
+  ];
+
+  // 🔹 DOM References
+  const messagesDiv = document.getElementById("chatbot-messages");
   const input = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
   const toggleBtn = document.getElementById("chatbot-toggle");
   const chatbot = document.getElementById("chatbot-container");
 
+  // 🔹 Add messages
   function addMessage(text, sender) {
     const msg = document.createElement("div");
     msg.className = sender;
@@ -244,35 +301,40 @@
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
+  // 🔹 Find response by keyword
   function getResponse(userText) {
-    userText = userText.toLowerCase();
+    const cleanText = normalizeText(userText);
     for (const r of responses) {
-      if (r.keywords.some(k => userText.includes(k))) return r.answer;
+      if (r.keywords.some(k => cleanText.includes(k))) {
+        return r.answer;
+      }
     }
-    return "No estoy seguro de eso 🤔, pero puedo ayudarte con alojamiento, transporte, ferrys o actividades en Ometepe.";
+    return "I'm not sure about that 🤔, but I can help you with lodging, transport, ferries, activities, or maps of Ometepe.";
   }
 
+  // 🔹 Send message
   sendBtn.addEventListener("click", () => {
     const text = input.value.trim();
     if (!text) return;
-    addMessage("Tú: " + text, "user");
+    addMessage("You: " + text, "user");
     input.value = "";
     setTimeout(() => {
       addMessage("Bot: " + getResponse(text), "bot");
     }, 500);
   });
 
+  // 🔹 Enter key = send
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendBtn.click();
   });
 
-  // ✅ Abrir/cerrar chatbot con el botón
+  // 🔹 Toggle chatbot open/close
   toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita que el clic se propague al documento
+    e.stopPropagation();
     chatbot.classList.toggle("open");
   });
 
-  // ✅ Cerrar el chatbot si se hace clic fuera de él
+  // 🔹 Close chatbot if click outside
   document.addEventListener("click", (e) => {
     if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
       chatbot.classList.remove("open");
@@ -281,6 +343,7 @@
 </script>
 
 
+  
 
 
 <script>
@@ -370,6 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
