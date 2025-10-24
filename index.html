@@ -236,7 +236,7 @@
     { keywords: ["Como estas", "estas", "como vas", "que onda"], answer: "Todo bien gracias a Dios, en que te puedo ayudar hoy prix?" },
   ];
 
-  const messagesDiv = document.getElementById("chatbot-messages");
+   const messagesDiv = document.getElementById("chatbot-messages");
   const input = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
   const toggleBtn = document.getElementById("chatbot-toggle");
@@ -272,11 +272,19 @@
     if (e.key === "Enter") sendBtn.click();
   });
 
-  toggleBtn.addEventListener("click", () => {
+  // ✅ Abrir/cerrar chatbot con el botón
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evita que el clic se propague al documento
     chatbot.classList.toggle("open");
   });
-</script>
 
+  // ✅ Cerrar el chatbot si se hace clic fuera de él
+  document.addEventListener("click", (e) => {
+    if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
+      chatbot.classList.remove("open");
+    }
+  });
+</script>
 
 
 
@@ -317,21 +325,53 @@
 
 
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('#navbar a');
 
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navbar = document.getElementById("navbar");
+  if (!menuToggle || !navbar) return;
+
+  const navLinks = navbar.querySelectorAll("a");
+
+  // 🔹 Alternar menú (abrir/cerrar)
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
+    navbar.classList.toggle("active");
+    const expanded = navbar.classList.contains("active");
+    menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
   });
 
+  // 🔹 Cerrar al hacer clic en un enlace del menú
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('active');
+    link.addEventListener("click", () => {
+      navbar.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  // 🔹 Cerrar al hacer clic fuera del menú o del botón
+  document.addEventListener("click", (e) => {
+    const clickFuera = !navbar.contains(e.target) && !menuToggle.contains(e.target);
+    if (clickFuera && navbar.classList.contains("active")) {
+      navbar.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // 🔹 Cerrar al presionar la tecla Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navbar.classList.contains("active")) {
+      navbar.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.focus();
+    }
+  });
+});
 </script>
+
+
+
 
 
 
