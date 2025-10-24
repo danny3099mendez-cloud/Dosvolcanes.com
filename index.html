@@ -209,7 +209,7 @@
 
 
 
-<!-- CHATBOT SENCILLO -->
+<!-- CHATBOT SENCILLO MEJORADO -->
 <div id="chatbot-container" class="chatbot-container">
   <div id="chatbot-header">💬 Chat - DosVolcanes</div>
   <div id="chatbot-messages" class="chatbot-messages"></div>
@@ -222,26 +222,83 @@
 <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
 
 <script>
+  // 🔤 Función para limpiar texto (quita acentos, signos y pone en minúsculas)
+  function normalizeText(text) {
+    return text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "") // quita acentos
+      .replace(/[^\w\s]/gi, ""); // quita signos
+  }
+
+  // 💬 Respuestas con MUCHOS más keywords
   const responses = [
-    { keywords: ["hola", "buenas"], answer: "¡Hola! 😊 Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?" },
-    { keywords: ["alojamiento", "hotel", "hospedaje", "isla"], answer: "En Ometepe hay varios lugares: Hostal El Viajero, Hotel Volcán y Eco-Lodge Paraíso. 🌴" },
-    { keywords: ["comida", "restaurante", "gastronomía"], answer: "Puedes probar el pescado frito, el vigorón o visitar La Casona, Doña María y Café El Mirador. 🍽️" },
-    { keywords: ["transporte", "moto", "carro", "vehículo"], answer: "Puedes rentar motos con Rentas 'El Veloz' o vehículos 4x4 con Ometepe Car Rental. 🛵🚙" },
-    { keywords: ["ferry", "barco", "puerto"], answer: "Los ferrys salen entre Moyogalpa y San Jorge. Llega una hora antes y compra tu boleto en taquilla. ⛴️" },
-    { keywords: ["actividades", "explora", "lugares", "qué hacer"], answer: "Puedes visitar el Ojo de Agua, Cascada San Ramón, Punta Jesús María y Charco Verde. 🌋" },
-    { keywords: ["mapa", "ubicacion"], answer: "Puedes ver la ubicación en el mapa dentro de la página, justo en la sección 'Ubicación Geográfica de Ometepe'. 🗺️" },
-    { keywords: ["contacto", "telefono", "correo", "email"], answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com 📞📧" },
-    { keywords: ["gracias", "adios"], answer: "¡Con gusto! 😊 Que tengas un excelente viaje por Ometepe." },
-    { keywords: ["donde queda", "donde es", "que pais", "queda"], answer: "Ometepe queda en nicaragua mi shakk ponete vivo" },
-    { keywords: ["Como estas", "estas", "como vas", "que onda"], answer: "Todo bien gracias a Dios, en que te puedo ayudar hoy prix?" },
+    {
+      keywords: ["hola", "buenas", "saludos", "que tal", "holaa", "holis", "buenos dias", "buenas tardes", "buenas noches", "hey", "alo"],
+      answer: "¡Hola! 😊 Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?"
+    },
+    {
+      keywords: ["alojamiento", "hotel", "hospedaje", "dormir", "hostal", "habitacion", "reserva", "isla", "posada", "cabaña"],
+      answer: "En Ometepe hay varios lugares: Hostal El Viajero, Hotel Volcán y Eco-Lodge Paraíso. 🌴"
+    },
+    {
+      keywords: ["comida", "restaurante", "gastronomia", "platos", "cena", "almuerzo", "desayuno", "bebida", "tragos", "menu"],
+      answer: "Puedes probar el pescado frito, el vigorón o visitar La Casona, Doña María y Café El Mirador. 🍽️"
+    },
+    {
+      keywords: ["transporte", "moto", "carro", "vehiculo", "bicicleta", "taxi", "rentar", "alquiler", "bus", "movilidad"],
+      answer: "Puedes rentar motos con Rentas 'El Veloz' o vehículos 4x4 con Ometepe Car Rental. 🛵🚙"
+    },
+    {
+      keywords: ["ferry", "barco", "lancha", "puerto", "bote", "ferri", "embarcacion", "cruce", "viaje en barco", "terminal"],
+      answer: "Los ferrys salen entre Moyogalpa y San Jorge. Llega una hora antes y compra tu boleto en taquilla. ⛴️"
+    },
+    {
+      keywords: ["actividad", "explora", "lugares", "que hacer", "turismo", "visitar", "aventura", "senderismo", "volcan", "atraccion"],
+      answer: "Puedes visitar el Ojo de Agua, Cascada San Ramón, Punta Jesús María y Charco Verde. 🌋"
+    },
+    {
+      keywords: ["mapa", "ubicacion", "direccion", "localizacion", "como llegar", "donde esta", "ver mapa", "sitio exacto"],
+      answer: "Puedes ver la ubicación en el mapa dentro de la página, justo en la sección 'Ubicación Geográfica de Ometepe'. 🗺️"
+    },
+    {
+      keywords: ["contacto", "telefono", "correo", "email", "whatsapp", "mensaje", "numero", "hablar", "contactar"],
+      answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com 📞📧"
+    },
+    {
+      keywords: ["gracias", "adios", "chau", "nos vemos", "hasta luego", "ok", "vale"],
+      answer: "¡Con gusto! 😊 Que tengas un excelente viaje por Ometepe."
+    },
+    {
+      keywords: ["donde queda", "donde es", "que pais", "queda", "ubicada", "localiza", "pais ometepe", "nicaragua"],
+      answer: "Ometepe queda en Nicaragua 🇳🇮, dentro del Lago Cocibolca, formada por los volcanes Concepción y Maderas. 🌋"
+    },
+    {
+      keywords: ["como estas", "estas bien", "todo bien", "que onda", "como vas", "que tal tu dia"],
+      answer: "Todo bien gracias a Dios 🙌 ¿Y tú? ¿En qué te puedo ayudar hoy?"
+    },
+    {
+      keywords: ["precio", "cuanto cuesta", "tarifa", "valor", "costo", "pagos", "dinero", "precio ferry", "costo hospedaje"],
+      answer: "Los precios varían según temporada 🌞. El ferry ronda los $2-4 USD y hospedajes desde $10 USD la noche."
+    },
+    {
+      keywords: ["clima", "temperatura", "lluvia", "calor", "frio", "sol", "temporada", "mejor epoca"],
+      answer: "El clima en Ometepe es tropical ☀️. La mejor época para visitar es entre diciembre y abril (seca)."
+    },
+    {
+      keywords: ["animales", "flora", "fauna", "naturaleza", "monos", "aves", "selva", "bosque"],
+      answer: "En Ometepe puedes ver monos congo, aves exóticas y una vegetación impresionante 🌳🦜"
+    }
   ];
 
-   const messagesDiv = document.getElementById("chatbot-messages");
+  // 🔹 Referencias DOM
+  const messagesDiv = document.getElementById("chatbot-messages");
   const input = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
   const toggleBtn = document.getElementById("chatbot-toggle");
   const chatbot = document.getElementById("chatbot-container");
 
+  // 🔹 Añadir mensajes al chat
   function addMessage(text, sender) {
     const msg = document.createElement("div");
     msg.className = sender;
@@ -250,14 +307,18 @@
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
+  // 🔹 Buscar respuesta según palabra clave
   function getResponse(userText) {
-    userText = userText.toLowerCase();
+    const cleanText = normalizeText(userText);
     for (const r of responses) {
-      if (r.keywords.some(k => userText.includes(k))) return r.answer;
+      if (r.keywords.some(k => cleanText.includes(k))) {
+        return r.answer;
+      }
     }
-    return "No estoy seguro de eso 🤔, pero puedo ayudarte con alojamiento, transporte, ferrys o actividades en Ometepe.";
+    return "No estoy seguro de eso 🤔, pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
   }
 
+  // 🔹 Enviar mensaje
   sendBtn.addEventListener("click", () => {
     const text = input.value.trim();
     if (!text) return;
@@ -268,17 +329,18 @@
     }, 500);
   });
 
+  // 🔹 Enter = Enviar
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendBtn.click();
   });
 
-  // ✅ Abrir/cerrar chatbot con el botón
+  // 🔹 Mostrar / ocultar chatbot
   toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita que el clic se propague al documento
+    e.stopPropagation();
     chatbot.classList.toggle("open");
   });
 
-  // ✅ Cerrar el chatbot si se hace clic fuera de él
+  // 🔹 Cerrar chatbot si se hace clic fuera
   document.addEventListener("click", (e) => {
     if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
       chatbot.classList.remove("open");
