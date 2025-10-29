@@ -783,7 +783,69 @@ body.dark-mode .chatbot-toggle {
 body.dark-mode .modo-toggle {
   color: #f1f1f1;
 }
-.adminb {
-color: #eeeeee;
+
+
+/* ==== Formularios y reseñas ==== */
+
+
+form {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
 }
+
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.review-form button {
+background-color: #065f46;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+
+
+.newsletter-form button {
+background-color: #065f46;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+
+
+.review-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  max-width: 580px;
+  background-color: #fafafa;
+}
+
+.review-card h4 {
+  margin-bottom: 0.3rem;
+}
+
+.review-card .stars {
+  color: #f5b301;
+}
+
 
