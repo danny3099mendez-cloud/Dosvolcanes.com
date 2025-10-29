@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin - Descubre Ometepe</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    /* ===============================
+       ADMIN PANEL (simple y adaptable)
+    ================================ */
+    body {
+      background: #f9f9f9;
+      color: #333;
+      font-family: "Poppins", sans-serif;
+    }
+
+    header {
+      background: #007b5e;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem;
+    }
+
+    h2 {
+      margin: 1rem 0;
+      color: #007b5e;
+    }
+
+    .admin-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      
+    }
+
+    /* Login */
+    #login-section {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    #login-form {
+      max-width: 350px;
+      margin: auto;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #007b5e;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005f46;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .tab-btn {
+      background: #161515;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .tab-btn.active {
+      background: #007b5e;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+      }
+      .tab-btn {
+        width: 100%;
+        
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.6rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Panel de Administración</h1>
+    
+  </header>
+
+  <!-- LOGIN -->
+  <section id="login-section">
+    <h2>Iniciar sesión</h2>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Correo" required />
+      <input type="password" id="login-password" placeholder="Contraseña" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <!-- PANEL PRINCIPAL -->
+  <div id="admin-panel" class="admin-container" style="display:none;">
+    <div class="tabs">
+    
+      <button class="tab-btn" data-tab="resenas">⭐ Reseñas</button>
+      <button class="tab-btn" data-tab="mensajes">💬 Mensajes</button>
+      <button class="tab-btn" data-tab="suscriptores">📧 Suscriptores</button>
+      <button id="darkModeToggle" class="modo-toggle">🌙</button>
+    </div>
+
+    
+    <!-- Reseñas -->
+    <div id="resenas" class="tab-content">
+      <h2>Reseñas Pendientes</h2>
+      <table id="tabla-resenas">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Comentario</th>
+            <th>Calificación</th>
+            <th>Publicar</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Mensajes -->
+    <div id="mensajes" class="tab-content">
+      <h2>Mensajes de Contacto</h2>
+      <table id="tabla-mensajes">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Suscriptores -->
+    <div id="suscriptores" class="tab-content">
+      <h2>Suscriptores</h2>
+      <table id="tabla-suscriptores">
+        <thead>
+          <tr>
+            <th>Correo</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  
+
+
+
+<script>
+  const toggleDarkMode = document.getElementById("darkModeToggle");
+
+  // Al hacer clic en el botón, activa o desactiva la clase "dark-mode"
+  toggleDarkMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Guarda la preferencia en el navegador
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("modoOscuro", isDark);
+    
+    // Cambia el icono
+    toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
+  });
+
+  // Si el usuario ya tenía modo oscuro, recuérdalo
+  if (localStorage.getItem("modoOscuro") === "true") {
+    document.body.classList.add("dark-mode");
+    toggleDarkMode.textContent = "☀️";
+  }
+</script>
+
+
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
