@@ -177,7 +177,7 @@
         </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="seccion contacto">
+<section id="contacto" class="seccion contacto">
       <h2>Contáctanos</h2>
       <div class="grid-contacto">
         <div class="tarjeta">
@@ -187,15 +187,44 @@
           <p><strong>Dirección:</strong> Moyogalpa, Isla de Ometepe</p>
         </div>
 
-        <form class="formulario">
-          <input type="text" placeholder="Tu Nombre" required>
-          <input type="email" placeholder="Tu Correo Electrónico" required>
-          <textarea placeholder="Tu Mensaje" rows="4" required></textarea>
-          <button type="submit">Enviar Mensaje</button>
-        </form>
+ <form id="newsletter-form" class="formulario">
+  <h3>Suscribete a nuestro boletin</h3>
+
+        <div class="form-group">
+          <label for="contact-name">Hazlo ahora!!:</label>
+          <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required />
+        </div>
+ <button type="submit">Suscribirme</button>
+</form>
+
+
+
+
+          <form class="formulario">
+        <div class="form-group">
+          <label for="contact-name">Nombre:</label>
+          <input type="text" id="contact-name" placeholder="Tu nombre completo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Correo electrónico:</label>
+          <input type="email" id="contact-email" placeholder="tunombre@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Mensaje:</label>
+          <textarea id="contact-message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+        </div>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
       </div>
     </section>
   </main>
+
+
+
+    
 
   <footer>
     <p>&copy; 2025 Dosvolcanes.com Todos los derechos reservados.</p>
