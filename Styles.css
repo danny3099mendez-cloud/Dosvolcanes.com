@@ -788,6 +788,8 @@ body.dark-mode .modo-toggle {
 /* ==== Formularios y reseñas ==== */
 
 
+
+
 form {
   max-width: 600px;
   margin: 0 auto 2rem auto;
@@ -847,5 +849,4 @@ background-color: #065f46;
 .review-card .stars {
   color: #f5b301;
 }
-
 
