@@ -127,7 +127,7 @@
     </section>
 
     <!-- ACTIVIDADES -->
-    <section id="actividades_detalladas" class="seccion">
+   <section id="actividades_detalladas" class="seccion">
       <h2>Lo que No Te Puedes Perder</h2>
       <div id="actividades-carousel-container">
         <div class="carousel-track" id="carouselActividadesTrack">
@@ -155,6 +155,34 @@
         <button class="prev" onclick="moveSlide(2, -1)">&#10094;</button>
         <button class="next" onclick="moveSlide(2, 1)">&#10095;</button>
       </div>
+      <h2>Deja tu reseña</h2>
+      <form id="review-form" class="review-form">
+        <div class="form-group">
+          <label for="review-name">Tu nombre:</label>
+          <input type="text" id="review-name" placeholder="Ingresa tu nombre" required />
+        </div>
+
+        <div class="form-group">
+          <label>Tu calificación:</label>
+          <div class="stars">
+            <label><input type="radio" name="rating" value="1" />⭐</label>
+            <label><input type="radio" name="rating" value="2" />⭐⭐</label>
+            <label><input type="radio" name="rating" value="3" />⭐⭐⭐</label>
+            <label><input type="radio" name="rating" value="4" />⭐⭐⭐⭐</label>
+            <label><input type="radio" name="rating" value="5" />⭐⭐⭐⭐⭐</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="review-comment">Tu comentario:</label>
+          <textarea id="review-comment" rows="4" placeholder="Escribe tu experiencia..." required></textarea>
+        </div>
+
+        <button type="submit">Enviar reseña</button>
+      </form>
+
+      <!-- Aquí se mostrarán las reseñas publicadas -->
+      <div id="reviewsList" class="reviews-list"></div>
     </section>
 
     <!-- MAPA -->
