@@ -84,25 +84,44 @@ async function loadReviews() {
 async function sendMessage(e) {
   e.preventDefault();
 
-  const nombre = document.querySelector("#contact-name").value.trim();
+  const name = document.querySelector("#contact-name").value.trim();
   const email = document.querySelector("#contact-email").value.trim();
-  const mensaje = document.querySelector("#contact-message").value.trim();
+  const message = document.querySelector("#contact-message").value.trim();
 
-  if (!nombre || !email || !mensaje) {
-    alert("Por favor completa todos los campos.");
+
+  // Validación básica
+  if (!name || !email || !message) {
+    alert('Por favor completa todos los campos.');
     return;
   }
 
-  const { error } = await supabase
-    .from("mensajes_contacto")
-    .insert([{ nombre, email, mensaje }]);
+  // Construir el cuerpo del POST
+  const data = { name, email, message };
 
-  if (error) {
-    console.error("Error al enviar mensaje:", error);
-    alert("No se pudo enviar el mensaje.");
-  } else {
-    alert("Mensaje enviado correctamente. ¡Gracias por contactarnos!");
-    document.querySelector("#contact-form").reset();
+  try {
+    const response = await fetch(`${API_BASE}contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error del servidor: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    console.log(result)
+
+    // Mostrar mensaje al usuario (puedes personalizar esto)
+    alert('✅ Mensaje enviado con éxito. ¡Gracias por contactarnos!');
+    console.log('Respuesta del servidor:', result);
+
+    // Limpiar el formulario
+    form.reset();
+  } catch (error) {
+    console.error('❌ Error al enviar el formulario:', error);
+    alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
   }
 }
 

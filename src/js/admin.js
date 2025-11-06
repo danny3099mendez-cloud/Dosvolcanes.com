@@ -61,7 +61,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 =============================== */
 async function loadData() {
   await loadResenas();
-  await loadMensajes();
+  // await loadMensajes();
   await loadSuscriptores();
 }
 
