@@ -1,5 +1,5 @@
 // contact-form.js
-const API_BASE = 'https://mfuiaf-ip-170-80-16-166.tunnelmole.net/api/';
+const API_BASE = 'https://7h1ysb-ip-170-80-16-166.tunnelmole.net/api/';
 
 // Esperar a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Limpiar el formulario
       form.reset();
     } catch (error) {
-      console.error('❌ Error al enviar el formulario:', error);
+      console.error(' Error al enviar el formulario:', error);
       alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
     }
   });
