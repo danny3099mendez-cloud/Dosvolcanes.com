@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(result)
 
       // Mostrar mensaje al usuario (puedes personalizar esto)
-      alert('✅ Mensaje enviado con éxito. ¡Gracias por contactarnos!');
+      alert(' Mensaje enviado con éxito. ¡Gracias por contactarnos!');
       console.log('Respuesta del servidor:', result);
 
       // Limpiar el formulario
