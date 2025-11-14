@@ -42,12 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Mostrar mensaje al usuario (puedes personalizar esto)
       alert(' Mensaje enviado con éxito. ¡Gracias por contactarnos!');
       console.log('Respuesta del servidor:', result);
-
-      // Limpiar el formulario
-      form.reset();
+      
+      
     } catch (error) {
       console.error(' Error al enviar el formulario:', error);
       alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
     }
+    // Limpiar el formulario
+      form.reset();
   });
 });
