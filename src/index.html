@@ -192,7 +192,7 @@
                 <i class="fas fa-map-marked-alt"></i> Ubicación Geográfica de Ometepe
             </h2>
             <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
-                <!-- Iframe es intrínsecamente responsivo usando w-full -->
+                <!-- Iframe  responsivo usando w-full -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
                         width="100%"
                         height="400"
@@ -226,9 +226,6 @@
  <button type="submit">Suscribirme</button>
 </form>
 
-
-
-
           <form id="contact-form" class="formulario">
         <div class="form-group">
           <label for="contact-name">Nombre:</label>
@@ -251,10 +248,6 @@
     </section>
   </main>
 
-
-
-    
-
   <footer>
     <p>&copy; 2025 Dosvolcanes.com Todos los derechos reservados.</p>
     <a href="admin.html" class="adminb">Administrador</a>
@@ -271,9 +264,9 @@
   <script src="./js/visitor-counter.js"></script>
 
 
-<!-- CHATBOT SENCILLO MEJORADO -->
+<!-- CHATBOT SENCILLO -->
 <div id="chatbot-container" class="chatbot-container">
-  <div id="chatbot-header">💬 Chat - DosVolcanes</div>
+  <div id="chatbot-header"> Chat - DosVolcanes</div>
   <div id="chatbot-messages" class="chatbot-messages"></div>
   <div class="chatbot-input">
     <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
@@ -284,7 +277,7 @@
 <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
 
 <script>
-  // 🔤 Función para limpiar texto (quita acentos, signos y pone en minúsculas)
+  //  Función para limpiar texto (quita acentos, signos y pone en minúsculas)
   function normalizeText(text) {
     return text
       .toLowerCase()
@@ -293,11 +286,11 @@
       .replace(/[^\w\s]/gi, ""); // quita signos
   }
 
-  // 💬 Respuestas con MUCHOS más keywords
+  //  Respuestas
   const responses = [
     {
       keywords: ["hola", "buenas", "saludos", "que tal", "holaa", "holis", "buenos dias", "buenas tardes", "buenas noches", "hey", "alo"],
-      answer: "¡Hola! 😊 Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?"
+      answer: "¡Hola!  Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?"
     },
     {
       keywords: ["alojamiento", "hotel", "hospedaje", "dormir", "hostal", "habitacion", "reserva", "isla", "posada", "cabaña"],
@@ -325,42 +318,42 @@
     },
     {
       keywords: ["contacto", "telefono", "correo", "email", "whatsapp", "mensaje", "numero", "hablar", "contactar"],
-      answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com 📞📧"
+      answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com "
     },
     {
       keywords: ["gracias", "adios", "chau", "nos vemos", "hasta luego", "ok", "vale"],
-      answer: "¡Con gusto! 😊 Que tengas un excelente viaje por Ometepe."
+      answer: "¡Con gusto!  Que tengas un excelente viaje por Ometepe."
     },
     {
       keywords: ["donde queda", "donde es", "que pais", "queda", "ubicada", "localiza", "pais ometepe", "nicaragua"],
-      answer: "Ometepe queda en Nicaragua 🇳🇮, dentro del Lago Cocibolca, formada por los volcanes Concepción y Maderas. 🌋"
+      answer: "Ometepe queda en Nicaragua 🇳🇮, dentro del Lago Cocibolca, formada por los volcanes Concepción y Maderas. "
     },
     {
       keywords: ["como estas", "estas bien", "todo bien", "que onda", "como vas", "que tal tu dia"],
-      answer: "Todo bien gracias a Dios 🙌 ¿Y tú? ¿En qué te puedo ayudar hoy?"
+      answer: "Todo bien gracias a Dios  ¿Y tú? ¿En qué te puedo ayudar hoy?"
     },
     {
       keywords: ["precio", "cuanto cuesta", "tarifa", "valor", "costo", "pagos", "dinero", "precio ferry", "costo hospedaje"],
-      answer: "Los precios varían según temporada 🌞. El ferry ronda los $2-4 USD y hospedajes desde $10 USD la noche."
+      answer: "Los precios varían según temporada . El ferry ronda los $2-4 USD y hospedajes desde $10 USD la noche."
     },
     {
       keywords: ["clima", "temperatura", "lluvia", "calor", "frio", "sol", "temporada", "mejor epoca"],
-      answer: "El clima en Ometepe es tropical ☀️. La mejor época para visitar es entre diciembre y abril (seca)."
+      answer: "El clima en Ometepe es tropical . La mejor época para visitar es entre diciembre y abril (seca)."
     },
     {
       keywords: ["animales", "flora", "fauna", "naturaleza", "monos", "aves", "selva", "bosque"],
-      answer: "En Ometepe puedes ver monos congo, aves exóticas y una vegetación impresionante 🌳🦜"
+      answer: "En Ometepe puedes ver monos congo, aves exóticas y una vegetación impresionante "
     }
   ];
 
-  // 🔹 Referencias DOM
+  //  Referencias DOM
   const messagesDiv = document.getElementById("chatbot-messages");
   const input = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
   const toggleBtn = document.getElementById("chatbot-toggle");
   const chatbot = document.getElementById("chatbot-container");
 
-  // 🔹 Añadir mensajes al chat
+  //  Añadir mensajes al chat
   function addMessage(text, sender) {
     const msg = document.createElement("div");
     msg.className = sender;
@@ -369,7 +362,7 @@
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
-  // 🔹 Buscar respuesta según palabra clave
+  //  Buscar respuesta según palabra clave
   function getResponse(userText) {
     const cleanText = normalizeText(userText);
     for (const r of responses) {
@@ -377,10 +370,10 @@
         return r.answer;
       }
     }
-    return "No estoy seguro de eso 🤔, pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
+    return "No estoy seguro de eso , pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
   }
 
-  // 🔹 Enviar mensaje
+  //  Enviar mensaje
   sendBtn.addEventListener("click", () => {
     const text = input.value.trim();
     if (!text) return;
@@ -391,18 +384,18 @@
     }, 500);
   });
 
-  // 🔹 Enter = Enviar
+  //  Enter = Enviar
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendBtn.click();
   });
 
-  // 🔹 Mostrar / ocultar chatbot
+  //  Mostrar / ocultar chatbot
   toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     chatbot.classList.toggle("open");
   });
 
-  // 🔹 Cerrar chatbot si se hace clic fuera
+  //  Cerrar chatbot si se hace clic fuera
   document.addEventListener("click", (e) => {
     if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
       chatbot.classList.remove("open");
