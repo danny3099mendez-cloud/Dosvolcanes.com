@@ -1,81 +1,170 @@
-// contact-form.js (versión resistente a dobles envíos)
+// contact-form-robust.js
 const API_BASE = 'https://0ghkiu-ip-170-80-16-165.tunnelmole.net/api/';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contact-form');
-  if (!form) return console.error('Formulario no encontrado en el DOM.');
+(function () {
+  // --- util: alert deduplicado por 2s ---
+  (function dedupeAlert() {
+    const originalAlert = window.alert.bind(window);
+    let lastMsg = null;
+    let lastAt = 0;
+    window.alert = function (msg) {
+      const now = Date.now();
+      if (msg === lastMsg && now - lastAt < 2000) {
+        console.warn('Alert duplicado suprimido:', msg);
+        return;
+      }
+      lastMsg = msg;
+      lastAt = now;
+      originalAlert(msg);
+    };
+  })();
 
-  const submitBtn = form.querySelector('[type="submit"]');
+  // --- utilities ---
+  const safeLog = (...args) => {
+    try { console.log(...args); } catch (e) {}
+  };
 
-  // Guard para evitar doble envío simultáneo
-  let isSubmitting = false;
-
-  form.addEventListener('submit', async (event) => {
-    // Si otro listener se ejecuta primero y quiere cancelar, respetarlo:
-    if (event.defaultPrevented) return;
-
-    // Evitar que otros listeners de submit respondan también (opcional)
-    // event.stopImmediatePropagation();
-
-    event.preventDefault();
-
-    // si ya se está enviando, ignorar
-    if (isSubmitting) {
-      console.warn('Solicitud ya en curso — ignorando envío adicional.');
+  document.addEventListener('DOMContentLoaded', () => {
+    const originalForm = document.getElementById('contact-form');
+    if (!originalForm) {
+      console.error('Formulario no encontrado en el DOM.');
       return;
     }
 
-    const name = (form.querySelector('#contact-name') || {}).value?.trim() ?? '';
-    const email = (form.querySelector('#contact-email') || {}).value?.trim() ?? '';
-    const message = (form.querySelector('#contact-message') || {}).value?.trim() ?? '';
+    // 1) Eliminar atributo onsubmit inline si existe
+    if (originalForm.getAttribute('onsubmit')) {
+      safeLog('Eliminando atributo onsubmit inline.');
+      originalForm.removeAttribute('onsubmit');
+    }
 
-    if (!name || !email || !message) {
-      alert('Por favor completa todos los campos.');
+    // 2) Forzar que el botón submit no tenga onclick inline
+    const submitBtn = originalForm.querySelector('[type="submit"]');
+    if (submitBtn && submitBtn.getAttribute('onclick')) {
+      safeLog('Eliminando onclick inline del botón submit.');
+      submitBtn.removeAttribute('onclick');
+    }
+
+    // 3) Clonar el formulario para quitar event listeners previos (técnica común)
+    const clone = originalForm.cloneNode(true); // deep clone; no listeners copied
+    originalForm.parentNode.replaceChild(clone, originalForm);
+
+    // 4) Neutralizar propiedades directas que puedan existir
+    clone.onsubmit = null;
+
+    // 5) Re-seleccionar elementos dentro del clone
+    const form = document.getElementById('contact-form'); // ahora es el clone
+    if (!form) {
+      console.error('No pude recuperar el formulario tras clonar.');
       return;
     }
+    const btn = form.querySelector('[type="submit"]');
 
-    const data = { name, email, message };
+    // 6) Variables de control
+    let isSubmitting = false;
 
-    try {
-      isSubmitting = true;
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.dataset.origText = submitBtn.innerText;
-        submitBtn.innerText = 'Enviando...';
+    // 7) Instrumentación: mostrar stack cuando se ejecuta el handler
+    function debugTrace(note) {
+      safeLog(`handler: ${note} — ${new Date().toISOString()}`);
+      console.trace();
+    }
+
+    // 8) Elimina otros posibles listeners en document que reenvíen el form (opcional but safe)
+    //    No tocamos listeners de terceros en document para no romper otras cosas, pero dejamos esto comentado:
+    // document.removeEventListener('submit', someHandlerYouKnowAbout);
+
+    // 9) Handler único y protegido
+    async function handleSubmit(e) {
+      // si otro listener ya canceló el submit, respetarlo
+      if (e.defaultPrevented) {
+        safeLog('submit ya fue preventDefault por otro listener, abortando.');
+        return;
+      }
+      e.preventDefault();
+
+      debugTrace('inicio');
+
+      if (isSubmitting) {
+        safeLog('Ignorando envío: petición ya en curso.');
+        return;
       }
 
-      const response = await fetch(`${API_BASE}contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      const nameEl = form.querySelector('#contact-name');
+      const emailEl = form.querySelector('#contact-email');
+      const messageEl = form.querySelector('#contact-message');
 
-      if (!response.ok) {
-        throw new Error(`Error del servidor: ${response.status}`);
+      const name = (nameEl && nameEl.value || '').trim();
+      const email = (emailEl && emailEl.value || '').trim();
+      const message = (messageEl && messageEl.value || '').trim();
+
+      if (!name || !email || !message) {
+        alert('Por favor completa todos los campos.');
+        return;
       }
 
-      const result = await response.json();
-      console.log('Respuesta del servidor:', result);
+      const payload = { name, email, message };
 
-      // Mostrar feedback al usuario
-      alert('Mensaje enviado con éxito. ¡Gracias por contactarnos!');
+      try {
+        isSubmitting = true;
+        if (btn) {
+          btn.disabled = true;
+          btn.dataset._orig = btn.innerText;
+          btn.innerText = 'Enviando...';
+        }
 
-      // Limpiar el formulario (reset aseguran campos vuelvan a su estado)
-      form.reset();
+        // LOG previo al fetch
+        safeLog('Enviando payload:', payload);
 
-      // opcional: volver el foco al primer input
-      const firstInput = form.querySelector('input, textarea, select');
-      if (firstInput) firstInput.focus();
+        const res = await fetch(`${API_BASE}contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
 
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error);
-      alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
-    } finally {
-      isSubmitting = false;
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        if (submitBtn.dataset.origText) submitBtn.innerText = submitBtn.dataset.origText;
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+
+        const result = await res.json();
+        safeLog('Respuesta del servidor:', result);
+
+        alert('Mensaje enviado con éxito. ¡Gracias por contactarnos!');
+        form.reset();
+
+        // Enfocar primer campo
+        const first = form.querySelector('input, textarea, select');
+        if (first) first.focus();
+
+        debugTrace('fin correcto');
+
+      } catch (err) {
+        console.error('Error al enviar formulario:', err);
+        alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
+        debugTrace('fin error');
+      } finally {
+        isSubmitting = false;
+        if (btn) {
+          btn.disabled = false;
+          if (btn.dataset._orig) btn.innerText = btn.dataset._orig;
+          delete btn.dataset._orig;
+        }
       }
     }
+
+    // 10) Añadir el listener con capture true para que se ejecute antes de listeners bubble si existieran
+    form.addEventListener('submit', handleSubmit, { capture: true });
+
+    // 11) Protección adicional: interceptar clicks en el botón submit para prevenir envíos por doble-click rápido
+    if (btn) {
+      btn.addEventListener('click', (ev) => {
+        // Si ya se está enviando, prevenir cualquier intento adicional
+        if (isSubmitting) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          safeLog('Click ignorado — envío en curso');
+        }
+      }, { capture: true });
+    }
+
+    safeLog('contact-form-robust inicializado correctamente.');
   });
-});
+})();
