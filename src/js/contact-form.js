@@ -1,5 +1,5 @@
 // contact-form.js
-const API_BASE = 'https://prirzv-ip-170-80-16-165.tunnelmole.net/api/';
+const API_BASE = 'https://0ghkiu-ip-170-80-16-165.tunnelmole.net/api/';
 
 // Esperar a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {

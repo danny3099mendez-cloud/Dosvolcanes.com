@@ -1,5 +1,5 @@
 // js/index.js
-import { supabase } from "./supabase-client.js";
+//import { supabase } from "./supabase-client.js";
 
 /* ===============================
    CARGAR IMÁGENES DEL CARRUSEL

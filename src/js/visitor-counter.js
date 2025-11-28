@@ -1,5 +1,5 @@
 
-const API_BASE = 'https://prirzv-ip-170-80-16-165.tunnelmole.net/api/';
+const API_BASE = 'https://0ghkiu-ip-170-80-16-165.tunnelmole.net/api/';
 const counterEl = document.getElementById('showCounter');
 
 async function fetchVisitCount() {
