@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Ometepe - Local Tourism Guide</title>
   <link rel="stylesheet" href="Styles.css" />
+  <script src="carousel.js"></script>
+  <script src="./js/visitor-counter.js"></script>
 </head>
 <body>
   <header>
@@ -177,7 +179,14 @@
           <p><strong>Email:</strong> info@dosvolcanes.com</p>
           <p><strong>Address:</strong> Moyogalpa, Ometepe Island</p>
         </div>
-
+    <form id="newsletter-form" class="formulario">
+      <h3>Suscribete a nuestro boletin</h3>
+        <div class="form-group">
+          <label for="contact-name">Hazlo ahora!!:</label>
+          <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required />
+        </div>
+      <button type="submit">Suscribirme</button>
+    </form>
         <form id="contact-form" class="formulario">
           <input type="text" id="contact-name" placeholder="Your Name" required>
           <input type="email" id="contact-email" placeholder="Your Email" required>
@@ -188,19 +197,10 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Dosvolcanes.com All rights reserved.</p>
-  </footer>
-
   <a href="https://wa.me/50558016497?text=Hello%2C%20I%27m%20interested%20in%20more%20information.%20Thank%20you." 
      class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp">
     <img src="IMG/WH.png" alt="WhatsApp">
   </a>
-
-  
-  <script src="carousel.js"></script>
-  <script src="./js/visitor-counter.js"></script>
-
 
   <!-- SIMPLE CHATBOT (ENGLISH VERSION) -->
 <div id="chatbot-container" class="chatbot-container">
@@ -212,7 +212,7 @@
   </div>
 </div>
 
-<button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+<button id="chatbot-toggle" class="chatbot-toggle"></button>
 
 <script>
   //  Normalize text (remove accents, punctuation, and lowercase everything)
@@ -341,10 +341,6 @@
   });
 </script>
 
-
-  
-
-
 <script>
   const toggleDarkMode = document.getElementById("darkModeToggle");
 
@@ -411,19 +407,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<footer>
+    <p>&copy; 2025 Dosvolcanes All rights reserved.</p>
+</footer>
 
 </body>
 </html>

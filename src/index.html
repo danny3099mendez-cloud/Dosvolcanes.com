@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Descubre Ometepe - Guía de Turismo Local</title>
   <link rel="stylesheet" href="Styles.css" />
+  <script src="carousel.js"></script>
+  <script src="./js/visitor-counter.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </head>
-<script type="module" src="./js/index.js"></script>
 <body>
   <header>
     <div class="logo">
@@ -231,37 +233,26 @@
           <label for="contact-name">Nombre:</label>
           <input type="text" name="name" id="contact-name" placeholder="Tu nombre completo" required />
         </div>
-
         <div class="form-group">
           <label for="contact-email">Correo electrónico:</label>
           <input type="email" name="email" id="contact-email" placeholder="tunombre@email.com" required />
         </div>
-
         <div class="form-group">
           <label for="contact-message">Mensaje:</label>
           <textarea id="contact-message" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
         </div>
-
         <button type="submit">Enviar mensaje</button>
       </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Dosvolcanes.com Todos los derechos reservados.</p>
-    <a href="admin.html" class="adminb">Administrador</a>
-  </footer>
+  
 
  <a href="https://wa.me/50558016497?text=Hola%2C%20estoy%20interesado%2Fda%20en%20mas%20informacion,%20Gracias." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
      
     <img src="IMG/WH.png" alt="WhatsApp">
   </a>
-
-
-  <script src="carousel.js"></script>
-
-  <script src="./js/visitor-counter.js"></script>
 
 
 <!-- CHATBOT SENCILLO -->
@@ -403,15 +394,6 @@
   });
 </script>
 
-
-
-
-
-
-
-
-
-
 <script>
   const toggleDarkMode = document.getElementById("darkModeToggle");
 
@@ -433,15 +415,6 @@
     toggleDarkMode.textContent = "☀️";
   }
 </script>
-
-
-
-
-
-
-
-
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -488,16 +461,10 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
+<footer>
+    <p>&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
+    <a href="admin.html" class="adminb">Administrador</a>
+</footer>
 
 </body>
 </html>
