@@ -187,14 +187,28 @@
     // update document title
     if (t.meta_title) document.title = t.meta_title;
     // update all data-key elements
-    document.querySelectorAll("[data-key]").forEach(el => {
-      const key = el.getAttribute("data-key");
-      if (!key) return;
-      const value = t[key];
-      if (typeof value === "undefined") return;
-      // keep innerHTML for some keys (like visitas_text with span)
-      el.innerHTML = value;
-    });
+   document.querySelectorAll("[data-key]").forEach(el => {
+  const key = el.getAttribute("data-key");
+  if (!key) return;
+  const value = t[key];
+  if (typeof value === "undefined") return;
+
+  //  Protección especial para que el contador NO se sobrescriba
+  if (key === "visitas_text") {
+    const currentValue = document.getElementById("showCounter")?.textContent || "0";
+
+    if (lang === "es") {
+      el.innerHTML = `Visitas totales: <span id="showCounter">${currentValue}</span>`;
+    } else {
+      el.innerHTML = `Total visits: <span id="showCounter">${currentValue}</span>`;
+    }
+    return; //  importante: salimos y NO seguimos al innerHTML normal
+  }
+
+  //  Para todos los demás textos sí traducimos normalmente
+  el.innerHTML = value;
+});
+
     // placeholders (special cases)
     const newsletter = document.getElementById("newsletter-email");
     if (newsletter) {

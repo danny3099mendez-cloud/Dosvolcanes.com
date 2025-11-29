@@ -8,7 +8,7 @@ async function fetchVisitCount() {
         if (!response.ok) throw new Error('Error al obtener el contador');
         const data = await response.json();
 
-        // ✅ Mostrar el valor en el span
+        //  Mostrar el valor en el span
         counterEl.textContent = data.visits ?? '0';
     } catch (error) {
         console.error('Error al actualizar el contador:', error);
@@ -26,7 +26,7 @@ async function incrementVisitCount() {
 
         const data = await response.json();
 
-        // ✅ Mostrar el valor actualizado
+        //  Mostrar el valor actualizado
         counterEl.textContent = data.count ?? '0';
     } catch (error) {
         console.error('Error al incrementar visitas:', error);
