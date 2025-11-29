@@ -1,33 +1,37 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Descubre Ometepe - Guía de Turismo Local</title>
+  <title data-key="meta_title">Descubre Ometepe - Guía de Turismo Local</title>
   <link rel="stylesheet" href="Styles.css" />
-  
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="IMG/LOGO.png" alt="Logo Dosvolcanes" class="logo-img" />
       <span class="logo-text">Dosvolcanes.com</span>
-      <p>Visitas totales: <span id="showCounter">0</span></p>
+      <p data-key="visitas_text">Visitas totales: <span id="showCounter">0</span></p>
     </div>
 
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <div class="lang-switch" style="display:inline-block; margin-right:10px;">
+      <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false">&#9776;</button>
 
     <nav id="navbar">
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#alojamiento">Alojamiento</a></li>
-        <li><a href="#transporte">Transporte</a></li>
-        <li><a href="#ferry">Ferrys</a></li>
-        <li><a href="#actividades_detalladas">Explora</a></li>
-        <li><a href="#mapa">Mapa</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <a href="Index_en.html" class="idioma">English</a>
-<button id="darkModeToggle" class="modo-toggle">🌙</button>
+        <li><a id="nav_inicio" href="#inicio" data-key="nav_inicio">Inicio</a></li>
+        <li><a id="nav_alojamiento" href="#alojamiento" data-key="nav_alojamiento">Alojamiento</a></li>
+        <li><a id="nav_transporte" href="#transporte" data-key="nav_transporte">Transporte</a></li>
+        <li><a id="nav_ferry" href="#ferry" data-key="nav_ferry">Ferrys</a></li>
+        <li><a id="nav_explora" href="#actividades_detalladas" data-key="nav_explora">Explora</a></li>
+        <li><a id="nav_mapa" href="#mapa_ubicacion" data-key="nav_mapa">Mapa</a></li>
+        <li><a id="nav_contacto" href="#contacto" data-key="nav_contacto">Contacto</a></li>
+        <a href="Index_en.html" id="link_toggle_old" class="idioma" style="display:none;">English</a>
+        <button id="darkModeToggle" class="modo-toggle">🌙</button>
       </ul>
     </nav>
   </header>
@@ -35,8 +39,8 @@
   <main>
     <!-- HERO -->
     <section id="inicio" class="hero">
-      <h1>Bienvenido a la Isla de Ometepe</h1>
-      <p>Dos volcanes, un paraíso. Explora sus maravillas naturales y culturales.</p>
+      <h1 data-key="hero_title">Bienvenido a la Isla de Ometepe</h1>
+      <p data-key="hero_subtitle">Dos volcanes, un paraíso. Explora sus maravillas naturales y culturales.</p>
 
       <div class="carousel-container">
         <div class="carousel-track" id="carouselTrack">
@@ -50,119 +54,118 @@
       </div>
     </section>
 
+    <!-- FERRY (video) -->
+    <section id="ferry" class="seccion">
+      <h2 data-key="ferry_video_title">Bienvenidos a Ometepe</h2>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+        <iframe id="heroVideo"
+                src="https://www.youtube.com/embed/n4g-2HsKaDg"
+                frameborder="0"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;">
+        </iframe>
+      </div>
 
- <section id="ferry" class="seccion">
-  <h2>Bienvenidos a Ometepe</h2>
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
-      <iframe 
-        src="https://www.youtube.com/embed/n4g-2HsKaDg"
-        frameborder="0"
-        allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;">
-      </iframe>
-    </div>
+      <p class="aviso" data-key="ferry_funfact"><strong>Dato Curioso:</strong> La isla de Ometepe es la única isla del mundo con dos volcanes dentro de un mismo lago de agua dulce</p>
+    </section>
 
-    <p class="aviso"><strong>Dato Curioso:</strong> La isla de Ometepe es la única isla del mundo con dos volcanes dentro de un mismo lago de agua dulce</p>
-
-</section>
-
-  <!-- ALOJAMIENTO -->
-   <section id="alojamiento" class="seccion">
-  <h2>Hoteles y Restaurantes</h2>
-  <div class="grid">
-    <div class="tarjeta">
-      <h3>Alojamiento</h3>
-      <p>Desde hostales económicos hasta lodges de lujo, encuentra tu lugar ideal para descansar después de la aventura.</p>
-      <ul>
-        <li><a href="https://villaparaiso.com.ni/welcome.php" target="_blank" rel="noopener">Eco-Lodge Paraíso (Isla de Ometepe)</a></li>
-        <li><a href="https://www.facebook.com/reservacionesEHVM/" target="_blank" rel="noopener">Hotel Volcán (Altagracia)</a></li>
-        <li><a href="https://www.tripadvisor.es/Hotel_Review-g1720870-d5778818-Reviews-Hotel_El_Viajero-Ocotal_Nueva_Segovia_Department.html" target="_blank" rel="noopener">Hostal El Viajero (Moyogalpa)</a></li>
-      </ul>
-    </div>
-    <div class="tarjeta">
-      <h3>Gastronomía Local</h3>
-      <p>Prueba el pescado frito fresco, el vigorón y los deliciosos platos típicos nicaragüenses.</p>
-     <ul>
-  <li><a href="https://www.facebook.com/people/Comedor-Do%C3%B1a-Mar%C3%ADa/100063769850961/" target="_blank" rel="noopener">Comedor Doña María</a></li>
-  <li><a href="https://hotelin.com/hotel/Nicaragua/Hostal-La-Casona-7158831" target="_blank" rel="noopener">Restaurante La Casona</a></li>
-  <li><a href="https://www.instagram.com/explore/locations/102337117837420/mirador-los-volcanes-ometepe/" target="_blank" rel="noopener">Café El Mirador</a></li>
-</ul>
-
-    </div>
-  </div>
-</section>
-
-    <!-- TRANSPORTE -->
-    <section id="transporte" class="seccion">
-      <h2>Renta de Vehículos y Motocicletas</h2>
+    <!-- ALOJAMIENTO -->
+    <section id="alojamiento" class="seccion">
+      <h2 data-key="alojamiento_title">Hoteles y Restaurantes</h2>
       <div class="grid">
         <div class="tarjeta">
-          <h3>Motos (Recomendado)</h3>
-          <p>Perfectas para acceder a todos los rincones de Ometepe. Asegúrate de tener licencia.</p>
-          <p><strong>Contacto:</strong> Rentas "El Veloz" | Tel: 5797-3164</p>
+          <h3 data-key="alojamiento_card1_title">Alojamiento</h3>
+          <p data-key="alojamiento_card1_text">Desde hostales económicos hasta lodges de lujo, encuentra tu lugar ideal para descansar después de la aventura.</p>
+          <ul>
+            <li><a href="https://villaparaiso.com.ni/welcome.php" target="_blank" rel="noopener" data-key="link_paraiso">Eco-Lodge Paraíso (Isla de Ometepe)</a></li>
+            <li><a href="https://www.facebook.com/reservacionesEHVM/" target="_blank" rel="noopener" data-key="link_hotel_volcan">Hotel Volcán (Altagracia)</a></li>
+            <li><a href="https://www.tripadvisor.es/Hotel_Review-g1720870-d5778818-Reviews-Hotel_El_Viajero-Ocotal_Nueva_Segovia_Department.html" target="_blank" rel="noopener" data-key="link_hostal_viajero">Hostal El Viajero (Moyogalpa)</a></li>
+          </ul>
         </div>
         <div class="tarjeta">
-          <h3>Automóviles (4x4 Sugerido)</h3>
-          <p>Necesario para grupos grandes o mayor comodidad, especialmente en la temporada de lluvia.</p>
-          <p><strong>Contacto:</strong> Ometepe Car Rental | info@rentaometepe.com</p>
+          <h3 data-key="gastronomia_title">Gastronomía Local</h3>
+          <p data-key="gastronomia_text">Prueba el pescado frito fresco, el vigorón y los deliciosos platos típicos nicaragüenses.</p>
+          <ul>
+            <li><a href="https://www.facebook.com/people/Comedor-Do%C3%B1a-Mar%C3%ADa/100063769850961/" target="_blank" rel="noopener" data-key="link_dona_maria">Comedor Doña María</a></li>
+            <li><a href="https://hotelin.com/hotel/Nicaragua/Hostal-La-Casona-7158831" target="_blank" rel="noopener" data-key="link_la_casona">Restaurante La Casona</a></li>
+            <li><a href="https://www.instagram.com/explore/locations/102337117837420/mirador-los-volcanes-ometepe/" target="_blank" rel="noopener" data-key="link_mirador">Café El Mirador</a></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- FERRYS -->
-    <section id="ferry" class="seccion">
-      <h2>Ferrys: Moyogalpa - San Jorge</h2>
+    <!-- TRANSPORTE -->
+    <section id="transporte" class="seccion">
+      <h2 data-key="transporte_title">Renta de Vehículos y Motocicletas</h2>
+      <div class="grid">
+        <div class="tarjeta">
+          <h3 data-key="transporte_motos_title">Motos (Recomendado)</h3>
+          <p data-key="transporte_motos_text">Perfectas para acceder a todos los rincones de Ometepe. Asegúrate de tener licencia.</p>
+          <p><strong data-key="contacto_label">Contacto:</strong> Rentas "El Veloz" | Tel: 5797-3164</p>
+        </div>
+        <div class="tarjeta">
+          <h3 data-key="transporte_coches_title">Automóviles (4x4 Sugerido)</h3>
+          <p data-key="transporte_coches_text">Necesario para grupos grandes o mayor comodidad, especialmente en la temporada de lluvia.</p>
+          <p><strong data-key="contacto_label_2">Contacto:</strong> Ometepe Car Rental | info@rentaometepe.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FERRYS (info) -->
+    <section id="ferry_info" class="seccion">
+      <h2 data-key="ferry_info_title">Ferrys: Moyogalpa - San Jorge</h2>
       <div class="tarjeta">
-        <h3>Proceso de Reservación y Compra</h3>
+        <h3 data-key="ferry_proceso_title">Proceso de Reservación y Compra</h3>
         <ol>
-          <li>Llega al puerto de San Jorge o Moyogalpa una hora antes.</li>
-          <li>Compra boletos en taquilla (pasajeros o vehículos).</li>
-          <li>Presenta matrícula y licencia si llevas vehículo.</li>
-          <li>Embarque: primero vehículos, luego pasajeros.</li>
-          <li>Duración: entre 1h y 1h 30m.</li>
+          <li data-key="ferry_step1">Llega al puerto de San Jorge o Moyogalpa una hora antes.</li>
+          <li data-key="ferry_step2">Compra boletos en taquilla (pasajeros o vehículos).</li>
+          <li data-key="ferry_step3">Presenta matrícula y licencia si llevas vehículo.</li>
+          <li data-key="ferry_step4">Embarque: primero vehículos, luego pasajeros.</li>
+          <li data-key="ferry_step5">Duración: entre 1h y 1h 30m.</li>
         </ol>
-        <p class="aviso">TIP: Los horarios varían. Consulta cartelera al llegar al puerto.</p>
+        <p class="aviso" data-key="ferry_tip">TIP: Los horarios varían. Consulta cartelera al llegar al puerto.</p>
       </div>
     </section>
 
     <!-- ACTIVIDADES -->
-   <section id="actividades_detalladas" class="seccion">
-      <h2>Lo que No Te Puedes Perder</h2>
+    <section id="actividades_detalladas" class="seccion">
+      <h2 data-key="actividades_title">Lo que No Te Puedes Perder</h2>
       <div id="actividades-carousel-container">
         <div class="carousel-track" id="carouselActividadesTrack">
           <div class="actividad-slide active">
             <img src="IMG/ojodeagua.jpg" alt="Ojo de Agua">
-            <h3>Ojo de Agua</h3>
-            <p>Una piscina natural alimentada por un manantial volcánico, perfecta para un refrescante baño.</p>
+            <h3 data-key="act_ojodeagua_title">Ojo de Agua</h3>
+            <p data-key="act_ojodeagua_text">Una piscina natural alimentada por un manantial volcánico, perfecta para un refrescante baño.</p>
           </div>
           <div class="actividad-slide">
             <img src="IMG/cascada.jpg" alt="Cascada San Ramón">
-            <h3>Cascada San Ramón</h3>
-            <p>Un sendero de 3 km lleva a esta impresionante caída de agua de 50 metros.</p>
+            <h3 data-key="act_cascada_title">Cascada San Ramón</h3>
+            <p data-key="act_cascada_text">Un sendero de 3 km lleva a esta impresionante caída de agua de 50 metros.</p>
           </div>
           <div class="actividad-slide">
             <img src="IMG/puntajesusmaria.jpg" alt="Punta Jesús María">
-            <h3>Punta Jesús María</h3>
-            <p>Un estrecho istmo de arena con vistas inigualables de los volcanes.</p>
+            <h3 data-key="act_punta_title">Punta Jesús María</h3>
+            <p data-key="act_punta_text">Un estrecho istmo de arena con vistas inigualables de los volcanes.</p>
           </div>
           <div class="actividad-slide">
             <img src="IMG/charco verde.jpg" alt="Charco Verde">
-            <h3>Reserva Charco Verde</h3>
-            <p>Laguna esmeralda ideal para observar monos, aves y disfrutar la naturaleza.</p>
+            <h3 data-key="act_charco_title">Reserva Charco Verde</h3>
+            <p data-key="act_charco_text">Laguna esmeralda ideal para observar monos, aves y disfrutar la naturaleza.</p>
           </div>
         </div>
         <button class="prev" onclick="moveSlide(2, -1)">&#10094;</button>
         <button class="next" onclick="moveSlide(2, 1)">&#10095;</button>
       </div>
-      <h2>Deja tu reseña</h2>
+
+      <h2 data-key="reviews_title">Deja tu reseña</h2>
       <form id="review-form" class="review-form">
         <div class="form-group">
-          <label for="review-name">Tu nombre:</label>
+          <label for="review-name" data-key="review_name_label">Tu nombre:</label>
           <input type="text" id="review-name" placeholder="Ingresa tu nombre" required />
         </div>
 
         <div class="form-group">
-          <label>Tu calificación:</label>
+          <label data-key="review_rating_label">Tu calificación:</label>
           <div class="stars">
             <label><input type="radio" name="rating" value="1" />⭐</label>
             <label><input type="radio" name="rating" value="2" />⭐⭐</label>
@@ -173,295 +176,179 @@
         </div>
 
         <div class="form-group">
-          <label for="review-comment">Tu comentario:</label>
+          <label for="review-comment" data-key="review_comment_label">Tu comentario:</label>
           <textarea id="review-comment" rows="4" placeholder="Escribe tu experiencia..." required></textarea>
         </div>
 
-        <button type="submit">Enviar reseña</button>
+        <button type="submit" data-key="review_submit">Enviar reseña</button>
       </form>
 
-      <!-- Aquí se mostrarán las reseñas publicadas -->
       <div id="reviewsList" class="reviews-list"></div>
     </section>
 
     <!-- MAPA -->
     <section id="mapa_ubicacion" class="seccion pt-8 mt-8">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
-                <i class="fas fa-map-marked-alt"></i> Ubicación Geográfica de Ometepe
-            </h2>
-            <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
-                <!-- Iframe  responsivo usando w-full -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
-                        width="100%"
-                        height="400"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-[400px] md:h-[550px] lg:h-[650px]"
-                ></iframe>
-            </div>
-        </section>
+      <h2 data-key="map_title"><i class="fas fa-map-marked-alt"></i> Ubicación Geográfica de Ometepe</h2>
+      <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full h-[400px] md:h-[550px] lg:h-[650px]">
+        </iframe>
+      </div>
+    </section>
 
     <!-- CONTACTO -->
-<section id="contacto" class="seccion contacto">
-      <h2>Contáctanos</h2>
+    <section id="contacto" class="seccion contacto">
+      <h2 data-key="contacto_title">Contáctanos</h2>
       <div class="grid-contacto">
         <div class="tarjeta">
-          <h3>Información de Contacto</h3>
-          <p><strong>Teléfono:</strong> +505 5821-5395</p>
-          <p><strong>Email:</strong> info@dosvolcanes.com</p>
-          <p><strong>Dirección:</strong> Moyogalpa, Isla de Ometepe</p>
+          <h3 data-key="contacto_info_title">Información de Contacto</h3>
+          <p><strong data-key="telefono_label">Teléfono:</strong> +505 5821-5395</p>
+          <p><strong data-key="email_label">Email:</strong> info@dosvolcanes.com</p>
+          <p><strong data-key="direccion_label">Dirección:</strong> Moyogalpa, Isla de Ometepe</p>
         </div>
 
- <form id="newsletter-form" class="formulario">
-  <h3>Suscribete a nuestro boletin</h3>
+        <form id="newsletter-form" class="formulario">
+          <h3 data-key="newsletter_title">Suscribete a nuestro boletin</h3>
+          <div class="form-group">
+            <label for="newsletter-email" data-key="newsletter_label">Hazlo ahora!!:</label>
+            <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required />
+          </div>
+          <button type="submit" data-key="newsletter_submit">Suscribirme</button>
+        </form>
 
-        <div class="form-group">
-          <label for="contact-name">Hazlo ahora!!:</label>
-          <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required />
-        </div>
- <button type="submit">Suscribirme</button>
-</form>
-
-          <form id="contact-form" class="formulario">
-        <div class="form-group">
-          <label for="contact-name">Nombre:</label>
-          <input type="text" name="name" id="contact-name" placeholder="Tu nombre completo" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-email">Correo electrónico:</label>
-          <input type="email" name="email" id="contact-email" placeholder="tunombre@email.com" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Mensaje:</label>
-          <textarea id="contact-message" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-        </div>
-        <button type="submit">Enviar mensaje</button>
-      </form>
+        <form id="contact-form" class="formulario">
+          <div class="form-group">
+            <label for="contact-name" data-key="contact_name_label">Nombre:</label>
+            <input type="text" name="name" id="contact-name" placeholder="Tu nombre completo" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-email" data-key="contact_email_label">Correo electrónico:</label>
+            <input type="email" name="email" id="contact-email" placeholder="tunombre@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message" data-key="contact_message_label">Mensaje:</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+          </div>
+          <button type="submit" data-key="contact_submit">Enviar mensaje</button>
+        </form>
       </div>
     </section>
   </main>
 
-  
+  <script src="lang.js"></script>
+
+  <!-- keep your existing scripts -->
   <script src="carousel.js"></script>
   <script src="./js/visitor-counter.js"></script>
   <script type="module" src="./js/index.js"></script>
-  <a href="https://wa.me/50558016497?text=Hola%2C%20estoy%20interesado%2Fda%20en%20mas%20informacion,%20Gracias." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+
+  <a id="whatsapp_float" href="https://wa.me/50558016497?text=Hola%2C%20estoy%20interesado%2Fda%20en%20mas%20informacion,%20Gracias." 
+     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <img src="IMG/WH.png" alt="WhatsApp">
   </a>
 
-
-<!-- CHATBOT SENCILLO -->
-<div id="chatbot-container" class="chatbot-container">
-  <div id="chatbot-header"> Chat - DosVolcanes</div>
-  <div id="chatbot-messages" class="chatbot-messages"></div>
-  <div class="chatbot-input">
-    <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
-    <button id="send-btn">Enviar</button>
+  <!-- CHATBOT SENCILLO (usa respuestas traducibles) -->
+  <div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-header" data-key="chat_header"> Chat - DosVolcanes</div>
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="" />
+      <button id="send-btn">Enviar</button>
+    </div>
   </div>
-</div>
 
-<button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
 
-<script>
-  //  Función para limpiar texto (quita acentos, signos y pone en minúsculas)
-  function normalizeText(text) {
-    return text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") // quita acentos
-      .replace(/[^\w\s]/gi, ""); // quita signos
-  }
-
-  //  Respuestas
-  const responses = [
-    {
-      keywords: ["hola", "buenas", "saludos", "que tal", "holaa", "holis", "buenos dias", "buenas tardes", "buenas noches", "hey", "alo"],
-      answer: "¡Hola!  Bienvenido a DosVolcanes.com. ¿En qué te puedo ayudar sobre Ometepe?"
-    },
-    {
-      keywords: ["alojamiento", "hotel", "hospedaje", "dormir", "hostal", "habitacion", "reserva", "isla", "posada", "cabaña"],
-      answer: "En Ometepe hay varios lugares: Hostal El Viajero, Hotel Volcán y Eco-Lodge Paraíso. 🌴"
-    },
-    {
-      keywords: ["comida", "restaurante", "gastronomia", "platos", "cena", "almuerzo", "desayuno", "bebida", "tragos", "menu"],
-      answer: "Puedes probar el pescado frito, el vigorón o visitar La Casona, Doña María y Café El Mirador. 🍽️"
-    },
-    {
-      keywords: ["transporte", "moto", "carro", "vehiculo", "bicicleta", "taxi", "rentar", "alquiler", "bus", "movilidad"],
-      answer: "Puedes rentar motos con Rentas 'El Veloz' o vehículos 4x4 con Ometepe Car Rental. 🛵🚙"
-    },
-    {
-      keywords: ["ferry", "barco", "lancha", "puerto", "bote", "ferri", "embarcacion", "cruce", "viaje en barco", "terminal"],
-      answer: "Los ferrys salen entre Moyogalpa y San Jorge. Llega una hora antes y compra tu boleto en taquilla. ⛴️"
-    },
-    {
-      keywords: ["actividad", "explora", "lugares", "que hacer", "turismo", "visitar", "aventura", "senderismo", "volcan", "atraccion"],
-      answer: "Puedes visitar el Ojo de Agua, Cascada San Ramón, Punta Jesús María y Charco Verde. 🌋"
-    },
-    {
-      keywords: ["mapa", "ubicacion", "direccion", "localizacion", "como llegar", "donde esta", "ver mapa", "sitio exacto"],
-      answer: "Puedes ver la ubicación en el mapa dentro de la página, justo en la sección 'Ubicación Geográfica de Ometepe'. 🗺️"
-    },
-    {
-      keywords: ["contacto", "telefono", "correo", "email", "whatsapp", "mensaje", "numero", "hablar", "contactar"],
-      answer: "Puedes contactarnos al +505 5821-5395 o escribirnos a info@dosvolcanes.com "
-    },
-    {
-      keywords: ["gracias", "adios", "chau", "nos vemos", "hasta luego", "ok", "vale"],
-      answer: "¡Con gusto!  Que tengas un excelente viaje por Ometepe."
-    },
-    {
-      keywords: ["donde queda", "donde es", "que pais", "queda", "ubicada", "localiza", "pais ometepe", "nicaragua"],
-      answer: "Ometepe queda en Nicaragua 🇳🇮, dentro del Lago Cocibolca, formada por los volcanes Concepción y Maderas. "
-    },
-    {
-      keywords: ["como estas", "estas bien", "todo bien", "que onda", "como vas", "que tal tu dia"],
-      answer: "Todo bien gracias a Dios  ¿Y tú? ¿En qué te puedo ayudar hoy?"
-    },
-    {
-      keywords: ["precio", "cuanto cuesta", "tarifa", "valor", "costo", "pagos", "dinero", "precio ferry", "costo hospedaje"],
-      answer: "Los precios varían según temporada . El ferry ronda los $2-4 USD y hospedajes desde $10 USD la noche."
-    },
-    {
-      keywords: ["clima", "temperatura", "lluvia", "calor", "frio", "sol", "temporada", "mejor epoca"],
-      answer: "El clima en Ometepe es tropical . La mejor época para visitar es entre diciembre y abril (seca)."
-    },
-    {
-      keywords: ["animales", "flora", "fauna", "naturaleza", "monos", "aves", "selva", "bosque"],
-      answer: "En Ometepe puedes ver monos congo, aves exóticas y una vegetación impresionante "
+  <script>
+    // --- Chatbot / UI logic (uses window.chatResponses set by lang.js) ---
+    function normalizeText(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w\s]/gi, "");
     }
-  ];
 
-  //  Referencias DOM
-  const messagesDiv = document.getElementById("chatbot-messages");
-  const input = document.getElementById("user-input");
-  const sendBtn = document.getElementById("send-btn");
-  const toggleBtn = document.getElementById("chatbot-toggle");
-  const chatbot = document.getElementById("chatbot-container");
+    const messagesDiv = document.getElementById("chatbot-messages");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const toggleBtn = document.getElementById("chatbot-toggle");
+    const chatbot = document.getElementById("chatbot-container");
 
-  //  Añadir mensajes al chat
-  function addMessage(text, sender) {
-    const msg = document.createElement("div");
-    msg.className = sender;
-    msg.innerText = text;
-    messagesDiv.appendChild(msg);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  }
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = sender;
+      msg.innerText = text;
+      messagesDiv.appendChild(msg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
 
-  //  Buscar respuesta según palabra clave
-  function getResponse(userText) {
-    const cleanText = normalizeText(userText);
-    for (const r of responses) {
-      if (r.keywords.some(k => cleanText.includes(k))) {
-        return r.answer;
+    function getResponse(userText) {
+      const cleanText = normalizeText(userText);
+      const responses = window.chatResponses || [];
+      for (const r of responses) {
+        if (r.keywords.some(k => cleanText.includes(k))) {
+          return r.answer;
+        }
       }
+      // fallback (also translated by lang.js)
+      return window.chatFallback || "No estoy seguro de eso , pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
     }
-    return "No estoy seguro de eso , pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
-  }
 
-  //  Enviar mensaje
-  sendBtn.addEventListener("click", () => {
-    const text = input.value.trim();
-    if (!text) return;
-    addMessage("Tú: " + text, "user");
-    input.value = "";
-    setTimeout(() => {
-      addMessage("Bot: " + getResponse(text), "bot");
-    }, 500);
-  });
-
-  //  Enter = Enviar
-  input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") sendBtn.click();
-  });
-
-  //  Mostrar / ocultar chatbot
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    chatbot.classList.toggle("open");
-  });
-
-  //  Cerrar chatbot si se hace clic fuera
-  document.addEventListener("click", (e) => {
-    if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
-      chatbot.classList.remove("open");
-    }
-  });
-</script>
-
-<script>
-  const toggleDarkMode = document.getElementById("darkModeToggle");
-
-  // Al hacer clic en el botón, activa o desactiva la clase "dark-mode"
-  toggleDarkMode.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    // Guarda la preferencia en el navegador
-    const isDark = document.body.classList.contains("dark-mode");
-    localStorage.setItem("modoOscuro", isDark);
-    
-    // Cambia el icono
-    toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
-  });
-
-  // Si el usuario ya tenía modo oscuro, recuérdalo
-  if (localStorage.getItem("modoOscuro") === "true") {
-    document.body.classList.add("dark-mode");
-    toggleDarkMode.textContent = "☀️";
-  }
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menuToggle");
-  const navbar = document.getElementById("navbar");
-  if (!menuToggle || !navbar) return;
-
-  const navLinks = navbar.querySelectorAll("a");
-
-  // 🔹 Alternar menú (abrir/cerrar)
-  menuToggle.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
-    navbar.classList.toggle("active");
-    const expanded = navbar.classList.contains("active");
-    menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-  });
-
-  // 🔹 Cerrar al hacer clic en un enlace del menú
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+    sendBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage((window.currentLang === 'en' ? "You: " : "Tú: ") + text, "user");
+      input.value = "";
+      setTimeout(() => {
+        addMessage((window.currentLang === 'en' ? "Bot: " : "Bot: ") + getResponse(text), "bot");
+      }, 400);
     });
-  });
 
-  // 🔹 Cerrar al hacer clic fuera del menú o del botón
-  document.addEventListener("click", (e) => {
-    const clickFuera = !navbar.contains(e.target) && !menuToggle.contains(e.target);
-    if (clickFuera && navbar.classList.contains("active")) {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendBtn.click();
+    });
+
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      chatbot.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
+        chatbot.classList.remove("open");
+      }
+    });
+
+    // minimal safe init: if lang.js already applied the placeholders, fine.
+  </script>
+
+  <!-- Dark mode toggle (kept) -->
+  <script>
+    const toggleDarkMode = document.getElementById("darkModeToggle");
+
+    toggleDarkMode.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("modoOscuro", isDark);
+      toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
+    });
+
+    if (localStorage.getItem("modoOscuro") === "true") {
+      document.body.classList.add("dark-mode");
+      toggleDarkMode.textContent = "☀️";
     }
-  });
+  </script>
 
-  // 🔹 Cerrar al presionar la tecla Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && navbar.classList.contains("active")) {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.focus();
-    }
-  });
-});
-</script>
-
-
-<footer>
-    <p>&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
-    <a href="admin.html" class="adminb">Administrador</a>
-</footer>
-
+  <footer>
+      <p data-key="footer_text">&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
+      <a href="admin.html" class="adminb">Administrador</a>
+  </footer>
 </body>
 </html>
