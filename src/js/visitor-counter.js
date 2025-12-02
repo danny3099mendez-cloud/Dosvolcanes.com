@@ -1,4 +1,4 @@
-const API_BASE = 'hhttps://rlvzld-ip-170-80-16-165.tunnelmole.net/api/';
+const API_BASE = 'https://rlvzld-ip-170-80-16-165.tunnelmole.net/api/';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // ms
 
