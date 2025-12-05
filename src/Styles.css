@@ -78,6 +78,7 @@ nav a:hover {
   background: none;
   border: none;
   font-size: 1.8rem;
+   border-radius: 10px; /* <--- MODIFICA ESTE VALOR */
   color: white;
   cursor: pointer;
   position: absolute;
