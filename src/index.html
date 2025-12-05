@@ -441,6 +441,46 @@ document.addEventListener('mouseenter', () => {
     }
     
    
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+
+    // Función para cerrar el menú
+    function closeMenu() {
+        navbar.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // 1. Manejador de evento para el clic del botón (Abre/Cierra)
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic se propague al documento inmediatamente
+        // Alterna la clase 'active' para abrir o cerrar
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navbar.classList.toggle('active'); 
+    });
+
+    // 2. Cierra el menú si se hace clic en un enlace (en móviles)
+    const navLinks = navbar.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // 3. Cierre automático al hacer clic fuera del menú o del botón (¡LO NUEVO!)
+    document.addEventListener('click', (e) => {
+        // Verifica si el menú está abierto
+        const isMenuOpen = navbar.classList.contains('active');
+
+        if (isMenuOpen) {
+            // Comprueba si el clic ocurrió fuera del botón Y fuera del NAV
+            const isClickInsideNav = navbar.contains(e.target);
+            const isClickInsideToggle = menuToggle.contains(e.target);
+
+            if (!isClickInsideNav && !isClickInsideToggle) {
+                closeMenu();
+            }
+        }
+    });
+  </script>
 </script>
   
 </body>
