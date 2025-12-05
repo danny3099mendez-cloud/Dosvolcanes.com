@@ -937,3 +937,38 @@ body {
         opacity: 0;
     }
 }
+
+
+
+
+
+/* Estilos para los botones de idioma */
+.lang-btn {
+    /* Diseño Básico */
+    background-color: #45a049; /* Un azul profesional */
+    color: white; /* Texto blanco */
+    border: 1px solid #45a049; /* Borde sutil del mismo color */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    cursor: pointer; /* Indica que es clickeable */
+    
+    /* Importante: Estas líneas aseguran que solo se apliquen los estilos
+       y NO CAMBIE EL TAMAÑO, ya que el navegador usa el tamaño base
+       del texto y contenido. */
+    margin: 2px; /* Espacio mínimo para separarlos */
+    
+    /* Transición para efectos suaves */
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.lang-btn:hover {
+    background-color: #286e2b; /* Azul más oscuro */
+    border-color: #286e2b; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Efecto al hacer clic (Active/Pressed) */
+.lang-btn:active {
+    background-color: #004085; /* Azul aún más oscuro */
+    transform: translateY(1px); /* Pequeño movimiento */
+}
