@@ -389,6 +389,38 @@ footer {
 
 
 
+#newsletter-form button,
+#contact-form button {
+  background-color: #007BFF; /* Color principal (Azul moderno) */
+  color: #ffffff;            /* Color del texto (Blanco) */
+  border: none;              /* Elimina el borde gris por defecto */
+  padding: 12px 24px;        /* Espaciado interno para hacerlo más grande */
+  font-size: 16px;           /* Tamaño de letra legible */
+  font-weight: 600;          /* Texto en negrita */
+  border-radius: 6px;        /* Bordes suavemente redondeados */
+  cursor: pointer;           /* Cambia el cursor a "manito" */
+  width: 100%;               /* El botón ocupa el ancho del contenedor */
+  margin-top: 15px;          /* Separación con el input de arriba */
+  transition: all 0.3s ease; /* Suaviza los cambios de color/tamaño */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* --- Efecto Hover (Al pasar el mouse por encima) --- */
+
+#newsletter-form button:hover,
+#contact-form button:hover {
+  background-color: #0056b3; /* Un tono azul más oscuro */
+  transform: translateY(-2px); /* El botón "sube" ligeramente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* La sombra crece */
+}
+
+/* --- Efecto Active (Al hacer click) --- */
+
+#newsletter-form button:active,
+#contact-form button:active {
+  transform: translateY(0);    /* Vuelve a su sitio original */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* La sombra se reduce */
+}
 
 
 
