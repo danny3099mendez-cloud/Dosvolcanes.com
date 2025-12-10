@@ -195,8 +195,9 @@ nav a:hover {
 main {
   max-width: 1100px;
   margin: 0 auto;
- padding: 150px;
   padding-top: 15px;
+  padding: 150px;
+  
 }
 
 .seccion {
