@@ -193,10 +193,9 @@ nav a:hover {
 
 /* -------- SECCIONES GENERALES -------- */
 main {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding-top: 15px;
-  padding: 150px;
+  padding: 15px;
   
 }
 
