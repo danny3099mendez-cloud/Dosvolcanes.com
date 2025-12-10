@@ -749,6 +749,7 @@ body.dark-mode .hero {
 }
 
 /* Formularios */
+/* --- DARK MODE PARA INPUTS Y TEXTAREAS --- */
 body.dark-mode input,
 body.dark-mode textarea {
   background-color: #1f1f1f;
@@ -761,20 +762,37 @@ body.dark-mode textarea::placeholder {
   color: #aaa;
 }
 
-/* Botones */
+/* --- DARK MODE PARA BOTONES --- */
+/* Agregamos los IDs de los nuevos formularios a la lista */
 body.dark-mode button,
-body.dark-mode .formulario button {
-  background-color: #34d399;
-  color: #111;
+body.dark-mode .formulario button,
+body.dark-mode #newsletter-form button,
+body.dark-mode #contact-form button {
+  background-color: #34d399; /* Verde menta brillante */
+  color: #111;               /* Texto oscuro para contraste */
   border: none;
   transition: background-color 0.3s;
+  box-shadow: none;          /* Opcional: Quita la sombra del estilo azul si prefieres plano */
 }
 
+/* --- DARK MODE HOVER (AL PASAR EL MOUSE) --- */
 body.dark-mode button:hover,
-body.dark-mode .formulario button:hover {
-  background-color: #22c55e;
+body.dark-mode .formulario button:hover,
+body.dark-mode #newsletter-form button:hover,
+body.dark-mode #contact-form button:hover {
+  background-color: #22c55e; /* Verde más intenso */
+  color: #000;
 }
+/* --- Estilo para el Fondo de los Formularios (Similar a Información de Contacto) --- */
 
+.seccion.contacto1 {
+  background-color: #f0fff0; /* Un verde muy claro (similar al que se ve en la imagen) */
+  padding: 20px;            /* Espaciado interno para que el contenido no toque los bordes */
+  border-radius: 10px;      /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra muy suave para que resalte */
+  /* Si necesitas que el texto dentro del formulario se separe del fondo, puedes añadir: */
+  /* color: #333; */
+}
 /* Chatbot */
 body.dark-mode .chatbot-container {
   background-color: #1a1a1a;
