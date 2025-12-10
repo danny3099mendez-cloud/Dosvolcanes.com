@@ -392,7 +392,7 @@ footer {
 
 #newsletter-form button,
 #contact-form button {
-  background-color: #007BFF; /* Color principal (Azul moderno) */
+  background-color: #065f46; /* Color principal (Azul moderno) */
   color: #ffffff;            /* Color del texto (Blanco) */
   border: none;              /* Elimina el borde gris por defecto */
   padding: 12px 24px;        /* Espaciado interno para hacerlo más grande */
@@ -410,7 +410,7 @@ footer {
 
 #newsletter-form button:hover,
 #contact-form button:hover {
-  background-color: #0056b3; /* Un tono azul más oscuro */
+  background-color: #087556; /* Un tono azul más oscuro */
   transform: translateY(-2px); /* El botón "sube" ligeramente */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* La sombra crece */
 }
