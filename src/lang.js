@@ -172,8 +172,8 @@
       ],
       chatFallback: "I'm not sure about that, but I can help you with lodging, transport, ferries, activities, or maps of Ometepe.",
       // video ids (es / en)
-      video_es: "https://www.youtube.com/embed/n4g-2HsKaDg",
-      video_en: "https://www.youtube.com/embed/E9cju2NASi4"
+      video_es: "https://www.youtube.com/embed/7W2XBBeSZh0?si=pV57LLjqOJ5gZkre",
+      video_en: "https://www.youtube.com/embed/1Xg_SfbMnfo?si=LksJm7nBIDFWhnnd"
     }
   };
 
@@ -264,3 +264,4 @@
   // expose translations for debugging
   window._translations = translations;
 })();
+
