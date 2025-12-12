@@ -346,6 +346,7 @@
       toggleDarkMode.textContent = "☀️";
     }
   </script>
+  <script src="./js/newsletter.js" defer></script>
 
   <footer>
       <p data-key="footer_text">&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
@@ -466,7 +467,7 @@ document.addEventListener('mouseenter', () => {
         link.addEventListener('click', closeMenu);
     });
 
-    // 3. Cierre automático al hacer clic fuera del menú o del botón (¡LO NUEVO!)
+    // 3. Cierre automático al hacer clic fuera del menú o del botón
     document.addEventListener('click', (e) => {
         // Verifica si el menú está abierto
         const isMenuOpen = navbar.classList.contains('active');

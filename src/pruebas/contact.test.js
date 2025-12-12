@@ -4,7 +4,7 @@ import app from "../app.js";
 describe("Tests del endpoint /contact", () => {
   it("Debería rechazar cuando no hay email", async () => {
     const res = await request(app)
-      .post("/api/contact")   // ajusta si tu ruta es distinta
+      .post("/api/contact") 
       .send({
         name: "Danny",
         message: "Hola mundo"
