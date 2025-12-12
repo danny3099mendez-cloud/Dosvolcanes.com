@@ -1,4 +1,4 @@
-const API_BASE = 'https://xsi9m5-ip-170-80-16-165.tunnelmole.net/api/';
+//const API_BASE = 'https://hayjca-ip-170-80-16-165.tunnelmole.net/api/';
 
 document.addEventListener("DOMContentLoaded", () => {
     const newsletterForm = document.querySelector("#newsletter-form");
