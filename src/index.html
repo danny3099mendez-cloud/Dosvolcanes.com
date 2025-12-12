@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-key="meta_title">Descubre Ometepe - Guía de Turismo Local</title>
   <link rel="stylesheet" href="Styles.css" />
+  <!-- Mejoras: añadir meta description y posibilidad de favicon más adelante -->
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="IMG/LOGO 2.png" alt="Logo Dosvolcanes" class="logo-img" />
       <span class="logo-text">Dosvolcanes.com</span>
-      
     </div>
 
-    <div class="lang-switch" style="display:inline-block; margin-right:10px;">
-    
-    </div>
+    <div class="lang-switch" style="display:inline-block; margin-right:10px;" aria-hidden="true"></div>
 
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false">&#9776;</button>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Abrir menú">&#9776;</button>
 
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Navegación principal">
       <ul>
         <li><a id="nav_inicio" href="#inicio" data-key="nav_inicio">Inicio</a></li>
         <li><a id="nav_alojamiento" href="#alojamiento" data-key="nav_alojamiento">Alojamiento</a></li>
@@ -29,10 +27,10 @@
         <li><a id="nav_explora" href="#actividades_detalladas" data-key="nav_explora">Explora</a></li>
         <li><a id="nav_mapa" href="#mapa_ubicacion" data-key="nav_mapa">Mapa</a></li>
         <li><a id="nav_contacto" href="#contacto" data-key="nav_contacto">Contacto</a></li>
-        <a href="Index_en.html" id="link_toggle_old" class="idioma" style="display:none;">English</a>
-            <button class="lang-btn" onclick="setLanguage('es')">ES</button>
-      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-        <button id="darkModeToggle" class="lang-btn">🌙</button>
+        <li style="display:none"><a href="Index_en.html" id="link_toggle_old" class="idioma">English</a></li>
+        <li><button class="lang-btn" onclick="setLanguage('es')" aria-label="Cambiar idioma a Español">ES</button></li>
+        <li><button class="lang-btn" onclick="setLanguage('en')" aria-label="Cambiar idioma a Inglés">EN</button></li>
+        <li><button id="darkModeToggle" class="lang-btn" aria-pressed="false" aria-label="Alternar modo oscuro">🌙</button></li>
       </ul>
     </nav>
   </header>
@@ -45,13 +43,13 @@
 
       <div class="carousel-container">
         <div class="carousel-track" id="carouselTrack">
-         <img src="IMG/1 (1).jpg" alt="Ferry Ometepe" class="slide-item active">
+          <img src="IMG/1 (1).jpg" alt="Ferry Ometepe" class="slide-item active">
           <img src="IMG/1 (2).jpg" alt="Ojo de Agua" class="slide-item">
           <img src="IMG/1 (3).jpg" alt="Playa Los Mangos" class="slide-item">
           <img src="IMG/1 (4).jpg" alt="Punta Jesús María" class="slide-item">
         </div>
-        <button class="prev" onclick="moveSlide(1, -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1, 1)">&#10095;</button>
+        <button class="prev" onclick="moveSlide(1, -1)" aria-label="Anterior">&#10094;</button>
+        <button class="next" onclick="moveSlide(1, 1)" aria-label="Siguiente">&#10095;</button>
       </div>
     </section>
 
@@ -62,6 +60,7 @@
         <iframe id="heroVideo"
                 src="https://www.youtube.com/embed/7W2XBBeSZh0?si=pV57LLjqOJ5gZkre"
                 frameborder="0"
+                title="Video presentación Ometepe"
                 allowfullscreen
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;">
         </iframe>
@@ -78,18 +77,18 @@
           <h3 data-key="alojamiento_card1_title">Alojamiento</h3>
           <p data-key="alojamiento_card1_text">Desde hostales económicos hasta lodges de lujo, encuentra tu lugar ideal para descansar después de la aventura.</p>
           <ul>
-            <li><a href="https://villaparaiso.com.ni/welcome.php" target="_blank" rel="noopener" data-key="link_paraiso">Eco-Lodge Paraíso (Isla de Ometepe)</a></li>
-            <li><a href="https://www.facebook.com/reservacionesEHVM/" target="_blank" rel="noopener" data-key="link_hotel_volcan">Hotel Volcán (Altagracia)</a></li>
-            <li><a href="https://www.tripadvisor.es/Hotel_Review-g1720870-d5778818-Reviews-Hotel_El_Viajero-Ocotal_Nueva_Segovia_Department.html" target="_blank" rel="noopener" data-key="link_hostal_viajero">Hostal El Viajero (Moyogalpa)</a></li>
+            <li><a href="https://villaparaiso.com.ni/welcome.php" target="_blank" rel="noopener noreferrer" data-key="link_paraiso">Eco-Lodge Paraíso (Isla de Ometepe)</a></li>
+            <li><a href="https://www.facebook.com/reservacionesEHVM/" target="_blank" rel="noopener noreferrer" data-key="link_hotel_volcan">Hotel Volcán (Altagracia)</a></li>
+            <li><a href="https://www.tripadvisor.es/Hotel_Review-g1720870-d5778818-Reviews-Hotel_El_Viajero-Ocotal_Nueva_Segovia_Department.html" target="_blank" rel="noopener noreferrer" data-key="link_hostal_viajero">Hostal El Viajero (Moyogalpa)</a></li>
           </ul>
         </div>
         <div class="tarjeta">
           <h3 data-key="gastronomia_title">Gastronomía Local</h3>
           <p data-key="gastronomia_text">Prueba el pescado frito fresco, el vigorón y los deliciosos platos típicos nicaragüenses.</p>
           <ul>
-            <li><a href="https://www.facebook.com/people/Comedor-Do%C3%B1a-Mar%C3%ADa/100063769850961/" target="_blank" rel="noopener" data-key="link_dona_maria">Comedor Doña María</a></li>
-            <li><a href="https://hotelin.com/hotel/Nicaragua/Hostal-La-Casona-7158831" target="_blank" rel="noopener" data-key="link_la_casona">Restaurante La Casona</a></li>
-            <li><a href="https://www.instagram.com/explore/locations/102337117837420/mirador-los-volcanes-ometepe/" target="_blank" rel="noopener" data-key="link_mirador">Café El Mirador</a></li>
+            <li><a href="https://www.facebook.com/people/Comedor-Do%C3%B1a-Mar%C3%ADa/100063769850961/" target="_blank" rel="noopener noreferrer" data-key="link_dona_maria">Comedor Doña María</a></li>
+            <li><a href="https://hotelin.com/hotel/Nicaragua/Hostal-La-Casona-7158831" target="_blank" rel="noopener noreferrer" data-key="link_la_casona">Restaurante La Casona</a></li>
+            <li><a href="https://www.instagram.com/explore/locations/102337117837420/mirador-los-volcanes-ometepe/" target="_blank" rel="noopener noreferrer" data-key="link_mirador">Café El Mirador</a></li>
           </ul>
         </div>
       </div>
@@ -154,8 +153,8 @@
             <p data-key="act_charco_text">Laguna esmeralda ideal para observar monos, aves y disfrutar la naturaleza.</p>
           </div>
         </div>
-        <button class="prev" onclick="moveSlide(2, -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(2, 1)">&#10095;</button>
+        <button class="prev" onclick="moveSlide(2, -1)" aria-label="Anterior actividad">&#10094;</button>
+        <button class="next" onclick="moveSlide(2, 1)" aria-label="Siguiente actividad">&#10095;</button>
       </div>
 
       <h2 data-key="reviews_title">Deja tu reseña</h2>
@@ -189,7 +188,7 @@
 
     <!-- MAPA -->
     <section id="mapa_ubicacion" class="seccion pt-8 mt-8">
-      <h2 data-key="map_title"><i class="fas fa-map-marked-alt"></i> Ubicación Geográfica de Ometepe</h2>
+      <h2 data-key="map_title"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Ubicación Geográfica de Ometepe</h2>
       <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-green-500">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125111.74388892784!2d-85.67044813192412!3d11.498526352184207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74f7f146cf28f3%3A0x10c8b30590d63e8f!2sOmetepe!5e0!3m2!1ses-419!2sni!4v1759848215795!5m2!1ses-419!2sni"
                 width="100%"
@@ -214,16 +213,18 @@
           <p><strong data-key="direccion_label">Dirección:</strong> Moyogalpa, Isla de Ometepe</p>
         </div>
 
-        <form id="newsletter-form" class="seccion contacto1">
+        <!-- NEWSLETTER: mantiene ids y estructura para compatibilidad con JS -->
+        <form id="newsletter-form" class="seccion contacto1" aria-label="Formulario de suscripción al boletín">
           <h3 data-key="newsletter_title">Suscribete a nuestro boletin</h3>
           <div class="form-group">
             <label for="newsletter-email" data-key="newsletter_label">Hazlo ahora!!:</label>
-            <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required />
+            <input type="email" id="newsletter-email" name="email" placeholder="Tu correo electrónico" required />
           </div>
           <button type="submit" data-key="newsletter_submit">Suscribirme</button>
         </form>
 
-        <form id="contact-form" class="seccion contacto1">
+        <!-- FORMULARIO DE CONTACTO (mantiene funcionalidad) -->
+        <form id="contact-form" class="seccion contacto1" aria-label="Formulario de contacto">
           <div class="form-group">
             <label for="contact-name" data-key="contact_name_label">Nombre:</label>
             <input type="text" name="name" id="contact-name" placeholder="Tu nombre completo" required />
@@ -242,248 +243,202 @@
     </section>
   </main>
 
+  <!-- Recursos / Scripts externos (ordenados y con defer si procede) -->
   <script src="lang.js"></script>
-
-  <!-- keep your existing scripts -->
-  <script src="carousel.js"></script>
+  <script src="carousel.js" defer></script>
   <script src="./js/visitor-counter.js" defer></script>
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/index.js" defer></script>
+  <script src="./js/newsletter.js" defer></script>
 
+  <!-- Floating WhatsApp -->
   <a id="whatsapp_float" href="https://wa.me/50558016497?text=Hola%2C%20estoy%20interesado%2Fda%20en%20mas%20informacion,%20Gracias." 
-     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp" rel="noopener noreferrer">
     <img src="IMG/WH.png" alt="WhatsApp">
   </a>
 
   <!-- CHATBOT SENCILLO (usa respuestas traducibles) -->
-  <div id="chatbot-container" class="chatbot-container">
+  <div id="chatbot-container" class="chatbot-container" aria-hidden="false">
     <div id="chatbot-header" data-key="chat_header"> Chat - DosVolcanes</div>
-    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div id="chatbot-messages" class="chatbot-messages" role="log" aria-live="polite"></div>
     <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="" />
-      <button id="send-btn">Enviar</button>
+      <input type="text" id="user-input" placeholder="" aria-label="Mensaje al chatbot" />
+      <button id="send-btn" aria-label="Enviar mensaje">Enviar</button>
     </div>
   </div>
 
-  <button id="chatbot-toggle" class="chatbot-toggle">🤖</button>
+  <button id="chatbot-toggle" class="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-container">🤖</button>
 
+  <!-- Chatbot UI logic (no cambia comportamiento, pero está encapsulado) -->
   <script>
-    // --- Chatbot / UI logic (uses window.chatResponses set by lang.js) ---
-    function normalizeText(text) {
-      return text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\w\s]/gi, "");
-    }
+    (function () {
+      function normalizeText(text) {
+        return text
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^\w\s]/gi, "");
+      }
 
-    const messagesDiv = document.getElementById("chatbot-messages");
-    const input = document.getElementById("user-input");
-    const sendBtn = document.getElementById("send-btn");
-    const toggleBtn = document.getElementById("chatbot-toggle");
-    const chatbot = document.getElementById("chatbot-container");
+      const messagesDiv = document.getElementById("chatbot-messages");
+      const input = document.getElementById("user-input");
+      const sendBtn = document.getElementById("send-btn");
+      const toggleBtn = document.getElementById("chatbot-toggle");
+      const chatbot = document.getElementById("chatbot-container");
 
-    function addMessage(text, sender) {
-      const msg = document.createElement("div");
-      msg.className = sender;
-      msg.innerText = text;
-      messagesDiv.appendChild(msg);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
+      function addMessage(text, sender) {
+        const msg = document.createElement("div");
+        msg.className = sender;
+        msg.innerText = text;
+        messagesDiv.appendChild(msg);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
 
-    function getResponse(userText) {
-      const cleanText = normalizeText(userText);
-      const responses = window.chatResponses || [];
-      for (const r of responses) {
-        if (r.keywords.some(k => cleanText.includes(k))) {
-          return r.answer;
+      function getResponse(userText) {
+        const cleanText = normalizeText(userText);
+        const responses = window.chatResponses || [];
+        for (const r of responses) {
+          if (r.keywords.some(k => cleanText.includes(k))) {
+            return r.answer;
+          }
         }
+        return window.chatFallback || "No estoy seguro de eso , pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
       }
-      // fallback (also translated by lang.js)
-      return window.chatFallback || "No estoy seguro de eso , pero puedo ayudarte con alojamiento, transporte, ferrys, actividades o el mapa de Ometepe.";
-    }
 
-    sendBtn.addEventListener("click", () => {
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage((window.currentLang === 'en' ? "You: " : "Tú: ") + text, "user");
-      input.value = "";
-      setTimeout(() => {
-        addMessage((window.currentLang === 'en' ? "Bot: " : "Bot: ") + getResponse(text), "bot");
-      }, 400);
-    });
+      sendBtn.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (!text) return;
+        addMessage((window.currentLang === 'en' ? "You: " : "Tú: ") + text, "user");
+        input.value = "";
+        setTimeout(() => {
+          addMessage((window.currentLang === 'en' ? "Bot: " : "Bot: ") + getResponse(text), "bot");
+        }, 400);
+      });
 
-    input.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendBtn.click();
-    });
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendBtn.click();
+      });
 
-    toggleBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      chatbot.classList.toggle("open");
-    });
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        chatbot.classList.toggle("open");
+        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !expanded);
+      });
 
-    document.addEventListener("click", (e) => {
-      if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
-        chatbot.classList.remove("open");
-      }
-    });
-
-    // minimal safe init: if lang.js already applied the placeholders, fine.
+      document.addEventListener("click", (e) => {
+        if (!chatbot.contains(e.target) && !toggleBtn.contains(e.target)) {
+          chatbot.classList.remove("open");
+        }
+      });
+    })();
   </script>
 
-  <!-- Dark mode toggle (kept) -->
+  <!-- Dark mode toggle (mejor control de estado aria y persistencia) -->
   <script>
-    const toggleDarkMode = document.getElementById("darkModeToggle");
+    (function () {
+      const toggleDarkMode = document.getElementById("darkModeToggle");
 
-    toggleDarkMode.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      localStorage.setItem("modoOscuro", isDark);
-      toggleDarkMode.textContent = isDark ? "☀️" : "🌙";
-    });
+      function setDarkMode(enabled) {
+        document.body.classList.toggle("dark-mode", enabled);
+        toggleDarkMode.textContent = enabled ? "☀️" : "🌙";
+        toggleDarkMode.setAttribute('aria-pressed', String(enabled));
+        localStorage.setItem("modoOscuro", enabled);
+      }
 
-    if (localStorage.getItem("modoOscuro") === "true") {
-      document.body.classList.add("dark-mode");
-      toggleDarkMode.textContent = "☀️";
-    }
+      toggleDarkMode.addEventListener("click", () => setDarkMode(!document.body.classList.contains("dark-mode")));
+
+      if (localStorage.getItem("modoOscuro") === "true") {
+        setDarkMode(true);
+      }
+    })();
   </script>
-  <script src="./js/newsletter.js" defer></script>
 
   <footer>
-      <p data-key="footer_text">&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
-      <p data-key="visitas_text">Visitas totales: <span id="showCounter">0</span></p>
-      <a href="admin.html" class="adminb">Administrador</a>
+    <p data-key="footer_text">&copy; 2025 Dosvolcanes Todos los derechos reservados.</p>
+    <p data-key="visitas_text">Visitas totales: <span id="showCounter">0</span></p>
+    <a href="admin.html" class="adminb">Administrador</a>
   </footer>
 
+  <!-- Cursor aura + particles encapsulado y mejor comentado -->
+  <script>
+    (function () {
+      // Cursor aura
+      const cursorAura = document.createElement('div');
+      cursorAura.className = 'cursor-aura';
+      document.body.appendChild(cursorAura);
 
+      document.addEventListener('mousemove', (e) => {
+        cursorAura.style.left = `${e.clientX}px`;
+        cursorAura.style.top = `${e.clientY}px`;
+        cursorAura.style.opacity = '1';
+      });
 
+      document.addEventListener('mouseleave', () => { cursorAura.style.opacity = '0'; });
+      document.addEventListener('mouseenter', () => { cursorAura.style.opacity = '1'; });
 
+      const interactiveSelectors = 'a, button, input, textarea, .logo, header, .tarjeta, main img, #chatbot-toggle, .whatsapp-float, .lang-switch, .menu-toggle, footer';
+      const interactiveElements = document.querySelectorAll(interactiveSelectors);
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorAura.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursorAura.classList.remove('active'));
+      });
 
-  
-<script>
-const cursorAura = document.createElement('div');
-cursorAura.className = 'cursor-aura';
-document.body.appendChild(cursorAura);
+      // Falling particles (crea y reemplaza partículas continuamente)
+      const particlesContainer = document.createElement('div');
+      particlesContainer.id = 'particles-container';
+      document.body.appendChild(particlesContainer);
 
-// 1. Siempre sigue al mouse usando 'left' y 'top'
-document.addEventListener('mousemove', (e) => {
-    // Restauramos el código que funcionaba mejor para el movimiento
-    cursorAura.style.left = `${e.clientX}px`;
-    cursorAura.style.top = `${e.clientY}px`;
-});
-
-// 2. Definición de elementos interactivos (para "iluminar" el aura)
-const interactiveSelectors = 'a, button, input, textarea, .logo, header, .tarjeta, main img, #chatbot-toggle, .whatsapp-float, .lang-switch, .menu-toggle, footer';
-const interactiveElements = document.querySelectorAll(interactiveSelectors);
-
-// 3. Controlar la "iluminación" (clase .active)
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursorAura.classList.add('active'); 
-    });
-    el.addEventListener('mouseleave', () => {
-        cursorAura.classList.remove('active');
-    });
-});
-
-// Opcional: Esconde el aura cuando el mouse sale de la ventana
-document.addEventListener('mouseleave', () => {
-    cursorAura.style.opacity = '0';
-});
-document.addEventListener('mouseenter', () => {
-    cursorAura.style.opacity = '1';
-});
-
-// ... (El resto de tu código de Partículas y Dark Mode permanece igual)
-
-
-    // --- Lógica de Caída de Partículas (Falling Particles) ---
-    const particlesContainer = document.createElement('div');
-    particlesContainer.id = 'particles-container';
-    document.body.appendChild(particlesContainer);
-    
-    const numberOfParticles = 40; 
-    
-    function createParticle() {
+      const numberOfParticles = 40;
+      function createParticle() {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particlesContainer.appendChild(particle);
-        
-        // Asignar tamaño aleatorio 
-        const size = Math.random() * 5 + 2; 
+        const size = Math.random() * 5 + 2;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
-        // Asignar posición de inicio aleatoria
-        const startX = Math.random() * 100; 
+        const startX = Math.random() * 100;
         particle.style.left = `${startX}vw`;
-        
-        // Asignar duración de caída aleatoria
-        const duration = Math.random() * 10 + 5; 
+        const duration = Math.random() * 10 + 5;
         particle.style.animationDuration = `${duration}s`;
-
-        // Asignar un retraso de inicio aleatorio 
-        const delay = Math.random() * -duration; 
+        const delay = Math.random() * -duration;
         particle.style.animationDelay = `${delay}s`;
-        
-        // Variación horizontal ligera (drift)
-        const drift = Math.random() * 20 - 10; 
+        const drift = Math.random() * 20 - 10;
         particle.style.setProperty('--drift', `${drift}vw`);
-
-        // Remover la partícula después de la animación 
         particle.addEventListener('animationend', () => {
-            particle.remove();
-            // Crea una nueva partícula para mantener el flujo constante
-            createParticle(); 
+          particle.remove();
+          createParticle();
         });
-    }
+      }
+      for (let i = 0; i < numberOfParticles; i++) createParticle();
 
-    // Crea el número inicial de partículas
-    for (let i = 0; i < numberOfParticles; i++) {
-        createParticle();
-    }
-    
-   
-    const menuToggle = document.getElementById('menuToggle');
-    const navbar = document.getElementById('navbar');
+      // Responsive menu logic (mantiene tu comportamiento)
+      const menuToggle = document.getElementById('menuToggle');
+      const navbar = document.getElementById('navbar');
 
-    // Función para cerrar el menú
-    function closeMenu() {
-        navbar.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-    }
+      function closeMenu() {
+        navbar.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
 
-    // 1. Manejador de evento para el clic del botón (Abre/Cierra)
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evita que el clic se propague al documento inmediatamente
-        // Alterna la clase 'active' para abrir o cerrar
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-        navbar.classList.toggle('active'); 
-    });
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navbar.classList.toggle('active');
+      });
 
-    // 2. Cierra el menú si se hace clic en un enlace (en móviles)
-    const navLinks = navbar.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+      const navLinks = navbar.querySelectorAll('a');
+      navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    // 3. Cierre automático al hacer clic fuera del menú o del botón
-    document.addEventListener('click', (e) => {
-        // Verifica si el menú está abierto
-        const isMenuOpen = navbar.classList.contains('active');
-
-        if (isMenuOpen) {
-            // Comprueba si el clic ocurrió fuera del botón Y fuera del NAV
-            const isClickInsideNav = navbar.contains(e.target);
-            const isClickInsideToggle = menuToggle.contains(e.target);
-
-            if (!isClickInsideNav && !isClickInsideToggle) {
-                closeMenu();
-            }
-        }
-    });
-  </script>
-</script>
-  
+      document.addEventListener('click', (e) => {
+        const isMenuOpen = navbar.classList.contains('active');
+        if (isMenuOpen) {
+          const isClickInsideNav = navbar.contains(e.target);
+          const isClickInsideToggle = menuToggle.contains(e.target);
+          if (!isClickInsideNav && !isClickInsideToggle) closeMenu();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
