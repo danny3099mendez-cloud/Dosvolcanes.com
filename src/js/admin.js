@@ -1,5 +1,3 @@
-//import { supabase } from "./supabase-client.js";
-
 /* ===============================
    DETECTAR SESIÓN ACTIVA
 =============================== */
