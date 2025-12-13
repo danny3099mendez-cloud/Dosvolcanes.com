@@ -1,19 +1,19 @@
 /* ===============================
    DETECTAR SESIÓN ACTIVA
-=============================== */
+=============================== 
 checkSession();
 
-async function checkSession() {
+/*async function checkSession() {
   const { data } = await supabase.auth.getSession();
   if (data?.session) {
     showAdmin();
   }
-}
+}*/
 
 /* ===============================
    LOGIN
 =============================== */
-const loginForm = document.querySelector("#login-form");
+/*const loginForm = document.querySelector("#login-form");
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = document.querySelector("#login-email").value.trim();
@@ -31,20 +31,20 @@ loginForm.addEventListener("submit", async (e) => {
   }
 
   showAdmin();
-});
+});*/
 
 /* ===============================
    MOSTRAR PANEL AL LOGUEAR
-=============================== */
+=============================== 
 function showAdmin() {
   document.querySelector("#login-section").style.display = "none";
   document.querySelector("#admin-panel").style.display = "block";
   loadData();
-}
+}*/
 
 /* ===============================
    TABS DE ADMIN
-=============================== */
+=============================== 
 document.querySelectorAll(".tab-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
@@ -52,18 +52,18 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.classList.add("active");
     document.getElementById(btn.dataset.tab).classList.add("active");
   });
-});
+}); */
 
 /* ===============================
    CARGA DE DATOS
-=============================== */
+=============================== 
 async function loadData() {
   await loadResenas();
   // await loadMensajes();
   await loadSuscriptores();
 }
 
-/* Reseñas */
+ Reseñas 
 async function loadResenas() {
   const tbody = document.querySelector("#tabla-resenas tbody");
   tbody.innerHTML = "";
@@ -88,7 +88,7 @@ async function loadResenas() {
   );
 }
 
-/* Mensajes */
+ Mensajes 
 async function loadMensajes() {
   const tbody = document.querySelector("#tabla-mensajes tbody");
   tbody.innerHTML = "";
@@ -106,7 +106,7 @@ async function loadMensajes() {
   });
 }
 
-/* Suscriptores */
+ Suscriptores 
 async function loadSuscriptores() {
   const tbody = document.querySelector("#tabla-suscriptores tbody");
   tbody.innerHTML = "";
@@ -117,4 +117,4 @@ async function loadSuscriptores() {
     tr.innerHTML = `<td>${s.email}</td><td>${new Date(s.created_at).toLocaleDateString()}</td>`;
     tbody.appendChild(tr);
   });
-}
+}*/
